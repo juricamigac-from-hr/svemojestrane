@@ -1,0 +1,78 @@
+{
+  "definitions": [
+    {
+      "title": "Information",
+      "id": "information",
+      "model": "information",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div class=\"information\"><div><div><p><em>Što je sve moje strane?</em></p></div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><p>Ako si se ikada osjećala kao da moraš sve sama razumjeti - nisi sama.</p></div></div><div><div><p>Ovdje ne tražimo brza rješenja ni savršene verzije sebe.</p></div></div></div>",
+          "fields": [
+            {
+              "name": "title",
+              "selector": "div:nth-child(1)>div:nth-child(1)"
+            },
+            {
+              "name": "image",
+              "selector": "div:nth-child(1)>div:nth-child(2)>picture>img[src]"
+            },
+            {
+              "name": "imageAlt",
+              "selector": "div:nth-child(1)>div:nth-child(2)>picture>img[alt]"
+            },
+            {
+              "name": "lead",
+              "selector": "div:nth-child(2)>div"
+            },
+            {
+              "name": "body",
+              "selector": "div:nth-child(3)>div"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "information",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "title",
+          "value": "",
+          "label": "Title",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Image Alt"
+        },
+        {
+          "component": "richtext",
+          "name": "lead",
+          "value": "",
+          "label": "Lead",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "body",
+          "value": "",
+          "label": "Body",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}
