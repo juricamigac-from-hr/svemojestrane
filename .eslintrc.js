@@ -10,6 +10,17 @@ module.exports = {
     sourceType: 'module',
     requireConfigFile: false,
   },
+  overrides: [
+    {
+      files: [
+        'plugins/experimentation/playwright.config.js',
+        'plugins/experimentation/tests/**/*.js',
+      ],
+      rules: {
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+      },
+    },
+  ],
   rules: {
     'import/extensions': ['error', { js: 'always' }], // require js file extensions in imports
     'linebreak-style': ['error', 'unix'], // enforce unix linebreaks
