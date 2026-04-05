@@ -51,6 +51,34 @@ function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
 }
 
+function decorateBrandText(navBrand) {
+  const brandContent = navBrand.querySelector('a, p');
+  if (!brandContent || navBrand.querySelector('img')) {
+    return;
+  }
+
+  const brandText = brandContent.textContent.trim().replace(/\s+/g, ' ');
+  if (!brandText) {
+    return;
+  }
+
+  const [, titleText, subtitleText] = brandText.match(/^(.*?)(?:\s+by\s+)(.+)$/i) || [];
+  const brandTitle = document.createElement('span');
+  brandTitle.className = 'nav-brand-title';
+  brandTitle.textContent = titleText || brandText;
+
+  brandContent.textContent = '';
+  brandContent.classList.add('nav-brand-copy');
+  brandContent.append(brandTitle);
+
+  if (subtitleText) {
+    const brandSubtitle = document.createElement('span');
+    brandSubtitle.className = 'nav-brand-subtitle';
+    brandSubtitle.textContent = `By ${subtitleText}`;
+    brandContent.append(brandSubtitle);
+  }
+}
+
 /**
  * Toggles all nav sections
  * @param {Element} sections The container element
@@ -196,9 +224,12 @@ export default async function decorate(block) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
+  decorateBrandText(navBrand);
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    navSections.querySelectorAll('.button').forEach((link) => link.classList.remove('button'));
+    navSections.querySelectorAll('.button-container').forEach((container) => container.classList.remove('button-container'));
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {

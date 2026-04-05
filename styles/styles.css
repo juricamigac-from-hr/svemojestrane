@@ -18,6 +18,7 @@
   --text-color: #131313;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
+  --brand-accent-color: #6f1d2a;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
@@ -36,8 +37,15 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
+  /* layout */
+  --content-max-width: 1280px;
+  --page-gutter-mobile: 24px;
+  --page-gutter-desktop: 32px;
+  --container-max-width-mobile: calc(var(--content-max-width) + (2 * var(--page-gutter-mobile)));
+  --container-max-width-desktop: calc(var(--content-max-width) + (2 * var(--page-gutter-desktop)));
+
   /* nav heights */
-  --nav-height: 64px;
+  --nav-height: 76px;
   --breadcrumbs-height: 34px;
   --header-height: var(--nav-height);
 }
@@ -69,6 +77,9 @@
     --heading-font-size-m: 22px;
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
+
+    /* nav heights */
+    --nav-height: 104px;
   }
 }
 
@@ -240,9 +251,9 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   margin: auto;
-  padding: 0 24px;
+  padding: 0 var(--page-gutter-mobile);
 }
 
 main > .section:first-of-type {
@@ -251,7 +262,7 @@ main > .section:first-of-type {
 
 @media (width >= 900px) {
   main > .section > div {
-    padding: 0 32px;
+    padding: 0 var(--page-gutter-desktop);
   }
 }
 

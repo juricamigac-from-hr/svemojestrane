@@ -5,12 +5,12 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
+  padding: 40px var(--page-gutter-mobile);
   min-height: 300px;
 }
 
 .hero h1 {
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   margin-left: auto;
   margin-right: auto;
   color: var(--background-color);
@@ -32,6 +32,6 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 40px var(--page-gutter-desktop);
   }
 }
