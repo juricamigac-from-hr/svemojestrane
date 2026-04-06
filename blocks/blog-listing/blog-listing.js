@@ -58,6 +58,19 @@ function parseCategories(value) {
   return [];
 }
 
+function extractSectionSettings(block) {
+  const section = block.closest('.section');
+  const hasShowFilterSetting = section?.hasAttribute('data-show-filter');
+  const showFilter = !hasShowFilterSetting || section.dataset.showFilter?.toLowerCase() !== 'no';
+  const filterBy = parseCategories(section?.dataset.filterBy)
+    .map((category) => category.toLowerCase());
+
+  return {
+    showFilter,
+    filterBy,
+  };
+}
+
 function normalizeBlog(item, source) {
   const title = item.title || item.name || item.heading || item.label || '';
   const description = item.description || item.excerpt || item.summary || item.teaser || '';
@@ -375,8 +388,19 @@ function createShell(config) {
   };
 }
 
+function filterBlogsByCategories(blogs, filters) {
+  if (!filters.length) {
+    return blogs;
+  }
+
+  return blogs.filter((blog) => blog.categories
+    .map((category) => category.toLowerCase())
+    .some((category) => filters.includes(category)));
+}
+
 export default async function decorate(block) {
   const config = extractConfig(block);
+  const sectionSettings = extractSectionSettings(block);
   const shell = createShell(config);
   block.replaceChildren(shell.shell);
 
@@ -391,23 +415,34 @@ export default async function decorate(block) {
     const blogs = await fetchBlogs(config.source);
     const categories = [...new Set(blogs.flatMap((blog) => blog.categories))]
       .filter(Boolean);
+    const initialCategory = sectionSettings.showFilter && sectionSettings.filterBy.length
+      ? sectionSettings.filterBy[0]
+      : 'all';
     const state = {
-      activeCategory: 'all',
+      activeCategory: initialCategory,
       currentPage: 1,
     };
 
     const update = () => {
-      const filteredBlogs = state.activeCategory === 'all'
-        ? blogs
-        : blogs.filter((blog) => blog.categories
+      let filteredBlogs = blogs;
+      if (!sectionSettings.showFilter) {
+        filteredBlogs = filterBlogsByCategories(blogs, sectionSettings.filterBy);
+      } else if (state.activeCategory !== 'all') {
+        filteredBlogs = blogs.filter((blog) => blog.categories
           .map((category) => category.toLowerCase())
           .includes(state.activeCategory));
+      }
 
-      renderFilters(shell.filters, categories, state.activeCategory, (value) => {
-        state.activeCategory = value;
-        state.currentPage = 1;
-        update();
-      });
+      shell.filters.hidden = !sectionSettings.showFilter;
+      if (!shell.filters.hidden) {
+        renderFilters(shell.filters, categories, state.activeCategory, (value) => {
+          state.activeCategory = value;
+          state.currentPage = 1;
+          update();
+        });
+      } else {
+        shell.filters.innerHTML = '';
+      }
 
       renderResults(
         shell.results,
