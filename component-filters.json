@@ -12,6 +12,7 @@
       "cards",
       "carousel",
       "columns",
+      "blog-listing",
       "embed",
       "fragment",
       "form",
@@ -22,6 +23,7 @@
       "search",
       "tabs",
       "table",
+      "teaser",
       "text",
       "video",
       "product-recommendations"

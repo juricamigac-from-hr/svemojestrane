@@ -95,6 +95,38 @@
           }
         },
         {
+          "title": "Blog Listing",
+          "id": "blog-listing",
+          "model": "blog-listing",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"blog-listing\"><div><div><h2>Blog &amp; Activities</h2></div></div><div><div><p><em>Time line &amp; Activities</em></p></div></div><div><div><p>We are group of teachers who really love childrens and enjoy every moment of teaching.</p></div></div><div><div><p><a href=\"\">API URL</a></p></div></div></div>",
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)>div"
+                },
+                {
+                  "name": "subtitle",
+                  "selector": "div:nth-child(2)>div"
+                },
+                {
+                  "name": "lead",
+                  "selector": "div:nth-child(3)>div"
+                },
+                {
+                  "name": "sourceUrl",
+                  "selector": "div:nth-child(4)>div>p>a[href]"
+                },
+                {
+                  "name": "sourceUrlText",
+                  "selector": "div:nth-child(4)>div>p>a"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "model": "cards",
@@ -373,6 +405,30 @@
                 {
                   "name": "content",
                   "selector": "div:nth-child(2)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Teaser",
+          "id": "teaser",
+          "model": "teaser",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"teaser\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture><h1></h1></div></div></div>",
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "div>div>picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div>div>picture>img[alt]"
+                },
+                {
+                  "name": "text",
+                  "selector": "div>div>h1"
                 }
               ]
             }
