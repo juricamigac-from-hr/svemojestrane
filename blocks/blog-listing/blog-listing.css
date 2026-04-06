@@ -231,7 +231,9 @@
 }
 
 .blog-listing .blog-listing-empty {
+  box-sizing: border-box;
   margin: 0;
+  width: 100%;
   padding: 36px 24px;
   border: 1px solid var(--blog-listing-border);
   background: rgb(255 255 255 / 82%);
@@ -295,6 +297,14 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
+  }
+
+  .blog-listing .blog-listing-results.is-empty {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blog-listing .blog-listing-empty {
+    grid-column: 1 / -1;
   }
 
   .blog-listing .blog-listing-card {

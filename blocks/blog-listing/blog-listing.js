@@ -307,7 +307,7 @@ function renderResults(resultsContainer, paginationContainer, blogs, currentPage
   if (!blogs.length) {
     const empty = document.createElement('p');
     empty.className = 'blog-listing-empty';
-    empty.textContent = 'No blogs found for this category.';
+    empty.textContent = 'Trenutno nema blogova za navedenu kategoriju.';
     resultsContainer.append(empty);
     return;
   }
