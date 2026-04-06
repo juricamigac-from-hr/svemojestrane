@@ -1,0 +1,78 @@
+{
+  "definitions": [
+    {
+      "title": "Blog Listing",
+      "id": "blog-listing",
+      "model": "blog-listing",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div class=\"blog-listing\"><div><div><h2>Blog &amp; Activities</h2></div></div><div><div><p><em>Time line &amp; Activities</em></p></div></div><div><div><p>We are group of teachers who really love childrens and enjoy every moment of teaching.</p></div></div><div><div><p><a href=\"\">API URL</a></p></div></div></div>",
+          "fields": [
+            {
+              "name": "title",
+              "selector": "div:nth-child(1)>div"
+            },
+            {
+              "name": "subtitle",
+              "selector": "div:nth-child(2)>div"
+            },
+            {
+              "name": "lead",
+              "selector": "div:nth-child(3)>div"
+            },
+            {
+              "name": "sourceUrl",
+              "selector": "div:nth-child(4)>div>p>a[href]"
+            },
+            {
+              "name": "sourceUrlText",
+              "selector": "div:nth-child(4)>div>p>a"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "blog-listing",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "title",
+          "value": "",
+          "label": "Title",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "subtitle",
+          "value": "",
+          "label": "Subtitle",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "lead",
+          "value": "",
+          "label": "Lead",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "sourceUrlText",
+          "label": "API URL Text"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "sourceUrl",
+          "label": "API URL",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "filters": []
+}
