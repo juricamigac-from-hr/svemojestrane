@@ -141,6 +141,9 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   doc.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  if (getMetadata('page').toLowerCase() === 'blog') {
+    doc.body.classList.add('page-blog');
+  }
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
   }

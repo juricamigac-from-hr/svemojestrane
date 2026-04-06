@@ -324,7 +324,6 @@ header nav .nav-sections .nav-drop:hover > p {
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: absolute;
-    top: calc(100% + 10px);
     right: -18px;
     min-width: 220px;
     padding: 18px 22px;
