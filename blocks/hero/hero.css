@@ -5,12 +5,14 @@
 
 .hero {
   --hero-padding-y: 34px;
+  --hero-title-color: rgb(255 248 244 / 96%);
+  --hero-copy-color: rgb(255 255 255 / 94%);
 
   position: relative;
   min-height: calc(100dvh - var(--header-height));
   padding: var(--hero-padding-y) var(--page-gutter-mobile);
   overflow: clip;
-  color: var(--background-color);
+  color: var(--hero-text-color, var(--background-color));
   isolation: isolate;
 }
 
@@ -48,11 +50,12 @@
   gap: 28px;
   width: min(100%, var(--content-max-width));
   margin: 0 auto;
+  text-align: center;
 }
 
 .hero .hero-title {
   margin: 0 auto;
-  color: rgb(255 248 244 / 96%);
+  color: var(--hero-title-color);
   font-family: baskerville, 'Times New Roman', serif;
   font-size: clamp(44px, 10vw, 90px);
   font-style: italic;
@@ -71,7 +74,7 @@
 
 .hero .hero-description {
   margin: 0;
-  color: rgb(255 255 255 / 94%);
+  color: var(--hero-copy-color);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(21px, 3vw, 28px);
   font-weight: 300;
@@ -79,6 +82,22 @@
   text-align: center;
   text-wrap: pretty;
   text-shadow: 0 8px 28px rgb(0 0 0 / 18%);
+}
+
+.hero.color {
+  background: var(--hero-background-color, var(--background-color));
+  color: var(--hero-text-color, var(--text-color));
+}
+
+.hero.color::after,
+.hero.color picture {
+  display: none;
+}
+
+.hero.color .hero-title,
+.hero.color .hero-description {
+  color: inherit;
+  text-shadow: none;
 }
 
 @media (width >= 900px) {
