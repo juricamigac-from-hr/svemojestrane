@@ -1,8 +1,9 @@
 export default function decorate(block) {
+  const isColorVariant = block.classList.contains('color');
   const picture = block.querySelector('picture');
   const heading = block.querySelector('h1, h2, h3, h4, h5, h6');
 
-  if (!picture || !heading) {
+  if (!heading || (!picture && !isColorVariant)) {
     return;
   }
 
@@ -33,5 +34,18 @@ export default function decorate(block) {
     content.append(copy);
   }
 
-  block.replaceChildren(picture, content);
+  if (isColorVariant) {
+    const section = block.closest('.section');
+    const { background, textcolor } = section?.dataset ?? {};
+
+    if (background) {
+      block.style.setProperty('--hero-background-color', background);
+    }
+
+    if (textcolor) {
+      block.style.setProperty('--hero-text-color', textcolor);
+    }
+  }
+
+  block.replaceChildren(...(picture ? [picture, content] : [content]));
 }
