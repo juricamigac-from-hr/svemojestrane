@@ -1,3 +1,5 @@
+import { applyBackgroundFocus } from '../../scripts/focal-point.js';
+
 export default function decorate(block) {
   const isColorVariant = block.classList.contains('color');
   const picture = block.querySelector('picture');
@@ -46,6 +48,8 @@ export default function decorate(block) {
       block.style.setProperty('--hero-text-color', textcolor);
     }
   }
+
+  applyBackgroundFocus(picture?.querySelector('img'));
 
   block.replaceChildren(...(picture ? [picture, content] : [content]));
 }
