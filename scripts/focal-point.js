@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export function applyBackgroundFocus(img) {
   const { title } = img?.dataset ?? {};
   if (!title?.includes('data-focal')) {
