@@ -1,3 +1,5 @@
+import { applyBackgroundFocus } from '../../scripts/focal-point.js';
+
 export default function decorate(block) {
   const picture = block.querySelector('picture');
   const heading = block.querySelector('h1, h2, h3, h4, h5, h6');
@@ -8,6 +10,7 @@ export default function decorate(block) {
 
   const media = document.createElement('div');
   media.className = 'teaser-media';
+  applyBackgroundFocus(picture.querySelector('img'));
   media.append(picture);
 
   const content = document.createElement('div');

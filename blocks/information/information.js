@@ -1,11 +1,13 @@
+import { applyBackgroundFocus } from '../../scripts/focal-point.js';
+
 export default function decorate(block) {
   const rows = [...block.children];
-  const [introRow, leadRow, bodyRow] = rows;
-
-  const introCells = introRow ? [...introRow.children] : [];
-  const media = introCells.find((cell) => cell.querySelector('picture, img'));
-  const lead = leadRow?.firstElementChild;
-  const body = bodyRow?.firstElementChild;
+  const cells = rows.flatMap((row) => [...row.children]);
+  const media = cells.find((cell) => cell.querySelector('picture, img'));
+  const textCells = cells
+    .filter((cell) => cell !== media && cell.textContent.trim())
+    .map((cell) => cell.firstElementChild ?? cell);
+  const [lead, body] = textCells;
 
   if (!lead && !body && !media) {
     return;
@@ -35,6 +37,7 @@ export default function decorate(block) {
   }
 
   if (media) {
+    applyBackgroundFocus(media.querySelector('img'));
     media.classList.add('information-media');
     layout.append(media);
   } else {
