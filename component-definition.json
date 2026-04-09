@@ -127,6 +127,54 @@
           }
         },
         {
+          "title": "Blog Posts",
+          "id": "blog-posts",
+          "model": "blog-posts",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"blog-posts\"><div><div><h2>Our posts</h2><p>Our weekly posts</p><p>We are group of teachers who really love childrens and enjoy every moment of teaching.</p></div></div><div><div><p><a href=\"https://main--svemojestrane--juricamigac-from-hr.aem.page/blogs/zasto-je-tesko-postaviti-granice-i-kako-to-uopce-izgleda-u-tijelu\">https://main--svemojestrane--juricamigac-from-hr.aem.page/blogs/zasto-je-tesko-postaviti-granice-i-kako-to-uopce-izgleda-u-tijelu</a></p></div></div><div><div><p><a href=\"https://main--svemojestrane--juricamigac-from-hr.aem.page/blogs/o-granicama-u-obitelji-kada-si-napokon-dozvolimo-ono-sto-nam-je-trebalo\">https://main--svemojestrane--juricamigac-from-hr.aem.page/blogs/o-granicama-u-obitelji-kada-si-napokon-dozvolimo-ono-sto-nam-je-trebalo</a></p></div></div><div><div><p><a href=\"https://main--svemojestrane--juricamigac-from-hr.aem.page/blogs/sto-je-zapravo-vazno-u-zivotu\">https://main--svemojestrane--juricamigac-from-hr.aem.page/blogs/sto-je-zapravo-vazno-u-zivotu</a></p></div></div></div>",
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)>div>h2"
+                },
+                {
+                  "name": "subtitle",
+                  "selector": "div:nth-child(1)>div>p:nth-of-type(1)"
+                },
+                {
+                  "name": "lead",
+                  "selector": "div:nth-child(1)>div>p:nth-of-type(2)"
+                },
+                {
+                  "name": "postOneUrl",
+                  "selector": "div:nth-child(2)>div>p>a[href]"
+                },
+                {
+                  "name": "postOneUrlText",
+                  "selector": "div:nth-child(2)>div>p>a"
+                },
+                {
+                  "name": "postTwoUrl",
+                  "selector": "div:nth-child(3)>div>p>a[href]"
+                },
+                {
+                  "name": "postTwoUrlText",
+                  "selector": "div:nth-child(3)>div>p>a"
+                },
+                {
+                  "name": "postThreeUrl",
+                  "selector": "div:nth-child(4)>div>p>a[href]"
+                },
+                {
+                  "name": "postThreeUrlText",
+                  "selector": "div:nth-child(4)>div>p>a"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "model": "cards",

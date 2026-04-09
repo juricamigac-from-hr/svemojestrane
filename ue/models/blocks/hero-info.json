@@ -1,0 +1,98 @@
+{
+  "definitions": [
+    {
+      "title": "Hero Info",
+      "id": "hero-info",
+      "model": "hero-info",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div class=\"hero-info\"><div><div><p>Tko je psihoterapeutkinja?</p><p>Ja sam Helena, zaljubljenica u djecu i odgoj.</p><p>Nebrojeno puta sam pomislila &bdquo;Kad bi barem mogla biti <em>Google Translate</em> između roditelja i djeteta&rdquo;, znajući da imate isti cilj - biti sretni u tom odnosu.</p></div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><p><a href=\"\">Pročitaj više ovdje</a></p></div></div></div>",
+          "fields": [
+            {
+              "name": "title",
+              "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(1)"
+            },
+            {
+              "name": "lead",
+              "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(2)"
+            },
+            {
+              "name": "quote",
+              "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(3)"
+            },
+            {
+              "name": "image",
+              "selector": "div:nth-child(1)>div:nth-child(2)>picture>img[src]"
+            },
+            {
+              "name": "imageAlt",
+              "selector": "div:nth-child(1)>div:nth-child(2)>picture>img[alt]"
+            },
+            {
+              "name": "ctaUrl",
+              "selector": "div:nth-child(2)>div>p>a[href]"
+            },
+            {
+              "name": "ctaText",
+              "selector": "div:nth-child(2)>div>p>a"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "hero-info",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "title",
+          "value": "",
+          "label": "Title",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "lead",
+          "value": "",
+          "label": "Lead",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "quote",
+          "value": "",
+          "label": "Quote",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Image Alt"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "ctaText",
+          "label": "CTA Text"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "ctaUrl",
+          "label": "CTA URL"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}
