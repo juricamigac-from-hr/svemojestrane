@@ -247,6 +247,98 @@
     ]
   },
   {
+    "id": "follow-me",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "handle",
+        "value": "",
+        "label": "Handle",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageOne",
+        "label": "Image One",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageOneAlt",
+        "label": "Image One Alt"
+      },
+      {
+        "component": "richtext",
+        "name": "textCardOne",
+        "value": "",
+        "label": "Text Card One",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageTwo",
+        "label": "Image Two",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageTwoAlt",
+        "label": "Image Two Alt"
+      },
+      {
+        "component": "richtext",
+        "name": "textCardTwo",
+        "value": "",
+        "label": "Text Card Two",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageThree",
+        "label": "Image Three",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageThreeAlt",
+        "label": "Image Three Alt"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageFour",
+        "label": "Image Four",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageFourAlt",
+        "label": "Image Four Alt"
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
