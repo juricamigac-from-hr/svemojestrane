@@ -287,6 +287,70 @@
           }
         },
         {
+          "title": "Follow Me",
+          "id": "follow-me",
+          "model": "follow-me",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"follow-me\"><div><div><p>Follow me today</p><p>@svemojestrane</p><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><p><strong>8</strong></p><p><strong>our</strong></p><p><strong>desires</strong></p><hr><p>you hold</p><p>your self back</p><p><a href=\"\">@svemojestrane</a></p></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><p>The radiant female who's more <em>successful</em> than you ISNT any better, she's just gutsier!</p><hr><p><a href=\"\">@svemojestrane</a></p></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div></div>",
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)>div>p:nth-child(1)"
+                },
+                {
+                  "name": "handle",
+                  "selector": "div:nth-child(1)>div>p:nth-child(2)"
+                },
+                {
+                  "name": "description",
+                  "selector": "div:nth-child(1)>div>p:nth-child(3)"
+                },
+                {
+                  "name": "imageOne",
+                  "selector": "div:nth-child(2)>div>picture>img[src]"
+                },
+                {
+                  "name": "imageOneAlt",
+                  "selector": "div:nth-child(2)>div>picture>img[alt]"
+                },
+                {
+                  "name": "textCardOne",
+                  "selector": "div:nth-child(3)>div"
+                },
+                {
+                  "name": "imageTwo",
+                  "selector": "div:nth-child(4)>div>picture>img[src]"
+                },
+                {
+                  "name": "imageTwoAlt",
+                  "selector": "div:nth-child(4)>div>picture>img[alt]"
+                },
+                {
+                  "name": "textCardTwo",
+                  "selector": "div:nth-child(5)>div"
+                },
+                {
+                  "name": "imageThree",
+                  "selector": "div:nth-child(6)>div>picture>img[src]"
+                },
+                {
+                  "name": "imageThreeAlt",
+                  "selector": "div:nth-child(6)>div>picture>img[alt]"
+                },
+                {
+                  "name": "imageFour",
+                  "selector": "div:nth-child(7)>div>picture>img[src]"
+                },
+                {
+                  "name": "imageFourAlt",
+                  "selector": "div:nth-child(7)>div>picture>img[alt]"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "model": "fragment",

@@ -1,0 +1,163 @@
+{
+  "definitions": [
+    {
+      "title": "Follow Me",
+      "id": "follow-me",
+      "model": "follow-me",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div class=\"follow-me\"><div><div><p>Follow me today</p><p>@svemojestrane</p><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><p><strong>8</strong></p><p><strong>our</strong></p><p><strong>desires</strong></p><hr><p>you hold</p><p>your self back</p><p><a href=\"\">@svemojestrane</a></p></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><p>The radiant female who's more <em>successful</em> than you ISNT any better, she's just gutsier!</p><hr><p><a href=\"\">@svemojestrane</a></p></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div></div>",
+          "fields": [
+            {
+              "name": "title",
+              "selector": "div:nth-child(1)>div>p:nth-child(1)"
+            },
+            {
+              "name": "handle",
+              "selector": "div:nth-child(1)>div>p:nth-child(2)"
+            },
+            {
+              "name": "description",
+              "selector": "div:nth-child(1)>div>p:nth-child(3)"
+            },
+            {
+              "name": "imageOne",
+              "selector": "div:nth-child(2)>div>picture>img[src]"
+            },
+            {
+              "name": "imageOneAlt",
+              "selector": "div:nth-child(2)>div>picture>img[alt]"
+            },
+            {
+              "name": "textCardOne",
+              "selector": "div:nth-child(3)>div"
+            },
+            {
+              "name": "imageTwo",
+              "selector": "div:nth-child(4)>div>picture>img[src]"
+            },
+            {
+              "name": "imageTwoAlt",
+              "selector": "div:nth-child(4)>div>picture>img[alt]"
+            },
+            {
+              "name": "textCardTwo",
+              "selector": "div:nth-child(5)>div"
+            },
+            {
+              "name": "imageThree",
+              "selector": "div:nth-child(6)>div>picture>img[src]"
+            },
+            {
+              "name": "imageThreeAlt",
+              "selector": "div:nth-child(6)>div>picture>img[alt]"
+            },
+            {
+              "name": "imageFour",
+              "selector": "div:nth-child(7)>div>picture>img[src]"
+            },
+            {
+              "name": "imageFourAlt",
+              "selector": "div:nth-child(7)>div>picture>img[alt]"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "follow-me",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "title",
+          "value": "",
+          "label": "Title",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "handle",
+          "value": "",
+          "label": "Handle",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "value": "",
+          "label": "Description",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "imageOne",
+          "label": "Image One",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageOneAlt",
+          "label": "Image One Alt"
+        },
+        {
+          "component": "richtext",
+          "name": "textCardOne",
+          "value": "",
+          "label": "Text Card One",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "imageTwo",
+          "label": "Image Two",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageTwoAlt",
+          "label": "Image Two Alt"
+        },
+        {
+          "component": "richtext",
+          "name": "textCardTwo",
+          "value": "",
+          "label": "Text Card Two",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "imageThree",
+          "label": "Image Three",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageThreeAlt",
+          "label": "Image Three Alt"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "imageFour",
+          "label": "Image Four",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageFourAlt",
+          "label": "Image Four Alt"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}
