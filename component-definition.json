@@ -371,6 +371,42 @@
           }
         },
         {
+          "title": "Image Text",
+          "id": "image-text",
+          "model": "image-text",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"image-text\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><h2>Why you learn education</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><ul><li>Used the web for a day on Internet Explorer</li><li>A detailed comparison between wordpress and october</li><li>block slack's contribution to buildign a better collae</li></ul><p>Our courses</p></div></div></div>",
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(1)>div:nth-child(1)>picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(1)>div:nth-child(1)>picture>img[alt]"
+                },
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>h2"
+                },
+                {
+                  "name": "lead",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>p:nth-of-type(1)"
+                },
+                {
+                  "name": "list",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>ul"
+                },
+                {
+                  "name": "kicker",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>p:nth-of-type(2)"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Information",
           "id": "information",
           "model": "information",
