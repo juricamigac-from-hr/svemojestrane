@@ -118,6 +118,69 @@
     ]
   },
   {
+    "id": "blog-posts",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "subtitle",
+        "value": "",
+        "label": "Subtitle",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "lead",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "postOneUrlText",
+        "label": "Post 1 Link Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "postOneUrl",
+        "label": "Post 1 URL",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "postTwoUrlText",
+        "label": "Post 2 Link Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "postTwoUrl",
+        "label": "Post 2 URL"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "postThreeUrlText",
+        "label": "Post 3 Link Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "postThreeUrl",
+        "label": "Post 3 URL"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
