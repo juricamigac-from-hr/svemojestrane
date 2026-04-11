@@ -118,7 +118,7 @@
 
 .form label[data-required]::after {
   content: '*';
-  color: firebrick;
+  color: var(--color-muted-rose);
   margin-inline-start: 1ch;
 }
 

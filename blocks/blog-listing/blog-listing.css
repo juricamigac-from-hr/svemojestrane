@@ -4,16 +4,16 @@
 }
 
 .blog-listing {
-  --blog-listing-border: #efe8e1;
-  --blog-listing-text: #2b2320;
-  --blog-listing-muted: #7f726c;
-  --blog-listing-surface: #fff;
-  --blog-listing-shadow: 0 22px 50px rgb(71 50 39 / 8%);
+  --blog-listing-border: var(--border-color);
+  --blog-listing-text: var(--color-deep-plum);
+  --blog-listing-muted: var(--muted-text-color);
+  --blog-listing-surface: var(--surface-color);
+  --blog-listing-shadow: 0 22px 50px rgb(74 47 63 / 8%);
 
   padding: clamp(40px, 6vw, 72px) var(--page-gutter-mobile);
   background:
     radial-gradient(circle at top center, rgb(255 248 243 / 90%), transparent 48%),
-    linear-gradient(180deg, #fffdfa 0%, #fff 100%);
+    linear-gradient(180deg, var(--surface-color) 0%, var(--background-color) 100%);
   color: var(--blog-listing-text);
 }
 
@@ -42,7 +42,7 @@
 
 .blog-listing .blog-listing-subtitle {
   margin: 0;
-  color: #7a6b63;
+  color: var(--color-muted-rose);
   font-family: baskerville, 'Times New Roman', serif;
   font-size: clamp(28px, 4vw, 40px);
   font-style: italic;
@@ -67,14 +67,14 @@
 }
 
 .blog-listing .blog-listing-filter {
-  --blog-listing-filter-color: #d8d0c7;
+  --blog-listing-filter-color: var(--color-soft-olive);
 
   position: relative;
   min-width: 108px;
   border: 0;
   padding: 14px 22px;
   background: var(--blog-listing-filter-color);
-  color: #fff;
+  color: var(--surface-color);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -124,7 +124,7 @@
   position: relative;
   display: block;
   overflow: hidden;
-  background: linear-gradient(135deg, #f1ebe6 0%, #e6ddd6 100%);
+  background: linear-gradient(135deg, var(--surface-elevated-color) 0%, var(--color-warm-sand) 100%);
   color: currentcolor;
 }
 
@@ -158,8 +158,8 @@
   gap: 4px;
   min-width: 56px;
   padding: 10px 8px;
-  background: #58c4ca;
-  color: #fff;
+  background: var(--color-soft-olive);
+  color: var(--surface-color);
   text-transform: uppercase;
 }
 
@@ -206,7 +206,7 @@
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
-  color: #a18f84;
+  color: var(--color-soft-olive);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -214,7 +214,7 @@
 }
 
 .blog-listing .blog-listing-card-meta-divider {
-  color: #d2c4b9;
+  color: var(--color-muted-rose);
 }
 
 .blog-listing .blog-listing-card-description {
@@ -236,7 +236,7 @@
   width: 100%;
   padding: 36px 24px;
   border: 1px solid var(--blog-listing-border);
-  background: rgb(255 255 255 / 82%);
+  background: rgb(255 253 249 / 82%);
   color: var(--blog-listing-muted);
   text-align: center;
 }
@@ -260,7 +260,7 @@
 
 .blog-listing .blog-listing-pagination-button {
   border: 1px solid var(--blog-listing-border);
-  background: #fff;
+  background: var(--surface-color);
   color: var(--blog-listing-text);
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
@@ -268,14 +268,14 @@
 
 .blog-listing .blog-listing-pagination-button:hover,
 .blog-listing .blog-listing-pagination-button:focus-visible {
-  border-color: #c7b6aa;
-  color: #1d1614;
+  border-color: var(--color-muted-rose);
+  color: var(--color-deep-plum);
 }
 
 .blog-listing .blog-listing-pagination-button.active {
-  border-color: #1f1815;
-  background: #1f1815;
-  color: #fff;
+  border-color: var(--color-deep-plum);
+  background: var(--color-deep-plum);
+  color: var(--surface-color);
 }
 
 .blog-listing .blog-listing-pagination-button:disabled {

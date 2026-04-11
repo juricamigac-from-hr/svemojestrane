@@ -5,8 +5,8 @@
 
 .hero {
   --hero-padding-y: 34px;
-  --hero-title-color: rgb(255 248 244 / 96%);
-  --hero-copy-color: rgb(255 255 255 / 94%);
+  --hero-title-color: rgb(247 241 234 / 98%);
+  --hero-copy-color: rgb(232 220 203 / 96%);
 
   position: relative;
   min-height: calc(100dvh - var(--header-height));
@@ -22,8 +22,8 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgb(16 10 8 / 34%) 0%, rgb(16 10 8 / 16%) 34%, rgb(16 10 8 / 42%) 100%),
-    linear-gradient(90deg, rgb(0 0 0 / 18%) 0%, transparent 38%, rgb(0 0 0 / 24%) 100%);
+    linear-gradient(180deg, rgb(74 47 63 / 38%) 0%, rgb(74 47 63 / 18%) 34%, rgb(74 47 63 / 48%) 100%),
+    linear-gradient(90deg, rgb(90 86 84 / 18%) 0%, transparent 38%, rgb(74 47 63 / 26%) 100%);
 }
 
 .hero picture {

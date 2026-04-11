@@ -1,5 +1,5 @@
 footer {
-  background-color: #262221;
+  background-color: var(--color-deep-plum);
   font-size: var(--body-font-size-xs);
 }
 
@@ -18,7 +18,7 @@ footer .footer .footer-shell {
 }
 
 footer .footer .footer-meta {
-  color: rgb(151 144 139 / 88%);
+  color: rgb(232 220 203 / 82%);
   font-family: 'Courier New', ui-monospace, monospace;
   font-size: 16px;
   line-height: 1.5;
@@ -54,13 +54,13 @@ footer .footer .footer-social-link {
   justify-content: center;
   width: 42px;
   height: 42px;
-  color: rgb(151 144 139 / 88%);
+  color: rgb(232 220 203 / 82%);
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
 footer .footer .footer-social-link:hover,
 footer .footer .footer-social-link:focus-visible {
-  color: rgb(232 225 220 / 96%);
+  color: var(--color-muted-rose);
   text-decoration: none;
   transform: translateY(-1px);
 }

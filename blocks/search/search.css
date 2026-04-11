@@ -34,7 +34,8 @@
 }
 
 .search ul.search-results > li {
-  border: 1px solid #dadada;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
 }
 
 .search ul.search-results > li > a {
