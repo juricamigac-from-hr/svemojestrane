@@ -3,7 +3,7 @@ body.modal-open {
 }
 
 .modal dialog::backdrop {
-  background-color: rgb(19 19 19 / 75%);
+  background-color: rgb(74 47 63 / 60%);
 }
 
 .modal dialog {
@@ -15,6 +15,7 @@ body.modal-open {
   max-height: calc(100dvh - (2 * var(--header-height)));
   padding: 0;
   border: 1px solid var(--dark-color);
+  background-color: var(--surface-color);
 }
 
 .modal dialog .modal-content {

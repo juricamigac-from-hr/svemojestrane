@@ -4,16 +4,16 @@
 }
 
 .hero-info {
-  --hero-info-background: #f8f4f0;
-  --hero-info-title-color: #3f3b3b;
-  --hero-info-copy-color: #55504e;
-  --hero-info-quote-color: #494544;
-  --hero-info-accent: #d8d2ce;
-  --hero-info-link: #1890e4;
+  --hero-info-background: var(--background-color);
+  --hero-info-title-color: var(--color-deep-plum);
+  --hero-info-copy-color: var(--color-warm-grey);
+  --hero-info-quote-color: var(--color-deep-plum);
+  --hero-info-accent: var(--color-muted-rose);
+  --hero-info-link: var(--color-deep-plum);
 
   background:
     radial-gradient(circle at top left, rgb(255 255 255 / 55%), transparent 38%),
-    linear-gradient(180deg, #fbf8f5 0%, var(--hero-info-background) 100%);
+    linear-gradient(180deg, var(--surface-color) 0%, var(--hero-info-background) 100%);
   color: var(--hero-info-copy-color);
 }
 
@@ -43,27 +43,17 @@
   display: grid;
   gap: 28px;
   padding: 24px 24px 28px 28px;
-  border: 1px solid rgb(216 207 200 / 42%);
+  border: 1px solid rgb(216 200 182 / 48%);
   background:
     radial-gradient(circle at top left, rgb(255 255 255 / 74%), transparent 54%),
-    linear-gradient(180deg, rgb(255 252 249 / 96%) 0%, rgb(247 241 236 / 90%) 100%);
-  box-shadow: 0 24px 54px rgb(96 78 66 / 8%);
-}
-
-.hero-info .hero-info-content::before {
-  content: '';
-  position: absolute;
-  inset: 16px auto 16px 0;
-  width: 3px;
-  background: linear-gradient(180deg, #d8c9be 0%, #efe5de 100%);
-  opacity: 0.9;
+    linear-gradient(180deg, rgb(255 253 249 / 96%) 0%, rgb(242 233 222 / 90%) 100%);
+  box-shadow: 0 24px 54px rgb(74 47 63 / 8%);
 }
 
 .hero-info .hero-info-title {
   grid-area: title;
   position: relative;
-  z-index: 2;
-  max-width: 11ch;
+  z-index: 0;
   margin: 0;
   color: var(--hero-info-title-color);
   font-family: baskerville, 'Times New Roman', serif;
@@ -80,25 +70,6 @@
   position: absolute;
   z-index: -1;
   pointer-events: none;
-}
-
-.hero-info .hero-info-title::before {
-  inset: auto auto 0.11em 30%;
-  width: min(62vw, 380px);
-  height: clamp(28px, 5vw, 58px);
-  background:
-    linear-gradient(92deg, rgb(224 217 213 / 0%) 0%, rgb(219 211 206 / 74%) 14%, rgb(216 208 202 / 78%) 84%, rgb(224 217 213 / 0%) 100%),
-    linear-gradient(180deg, rgb(255 255 255 / 22%) 0%, rgb(214 205 198 / 16%) 100%);
-  transform: rotate(-0.9deg);
-}
-
-.hero-info .hero-info-title::after {
-  inset: auto auto 0.16em 33%;
-  width: min(56vw, 340px);
-  height: clamp(16px, 3.8vw, 36px);
-  background:
-    linear-gradient(90deg, rgb(231 224 219 / 0%) 0%, rgb(226 218 214 / 82%) 18%, rgb(221 213 208 / 74%) 80%, rgb(231 224 219 / 0%) 100%);
-  transform: rotate(0.45deg);
 }
 
 .hero-info .hero-info-intro {
@@ -140,7 +111,7 @@
 
 .hero-info .hero-info-cta:hover,
 .hero-info .hero-info-cta:focus-visible {
-  color: color-mix(in srgb, var(--hero-info-link) 84%, black);
+  color: var(--color-muted-rose);
   text-decoration: none;
 }
 
@@ -158,7 +129,7 @@
 .hero-info .hero-info-media img {
   aspect-ratio: 1 / 1.02;
   object-fit: cover;
-  box-shadow: 0 28px 60px rgb(61 50 45 / 10%);
+  box-shadow: 0 28px 60px rgb(74 47 63 / 10%);
 }
 
 @media (width >= 900px) {
@@ -184,8 +155,8 @@
     margin-top: 190px;
     margin-left: 12px;
     padding: 34px 40px 38px 42px;
-    border-color: rgb(214 205 198 / 58%);
-    box-shadow: 0 32px 72px rgb(96 78 66 / 10%);
+    border-color: rgb(216 200 182 / 64%);
+    box-shadow: 0 32px 72px rgb(74 47 63 / 10%);
   }
 
   .hero-info .hero-info-title {
@@ -198,23 +169,6 @@
     font-size: clamp(62px, 5.6vw, 92px);
     line-height: 0.96;
     text-wrap-mode: nowrap;
-  }
-
-  .hero-info .hero-info-title::before {
-    inset: auto auto 0.14em 23%;
-    width: clamp(340px, 25vw, 470px);
-    height: clamp(36px, 3.6vw, 62px);
-  }
-
-  .hero-info .hero-info-title::after {
-    inset: auto auto 0.18em 25%;
-    width: clamp(290px, 22vw, 420px);
-    height: clamp(22px, 2.4vw, 42px);
-  }
-
-  .hero-info .hero-info-intro,
-  .hero-info .hero-info-quote {
-    max-width: 24ch;
   }
 
   .hero-info .hero-info-intro {
@@ -236,6 +190,8 @@
     aspect-ratio: 1 / 1.1;
     height: 100%;
     box-shadow: none;
+    border-top-left-radius: 36px;
+    border-bottom-left-radius: 36px;
   }
 
   .hero-info .hero-info-shell.hero-info-shell-no-media .hero-info-layout {

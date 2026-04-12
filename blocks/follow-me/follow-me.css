@@ -4,21 +4,21 @@
 }
 
 .follow-me {
-  --follow-me-surface: #fffdfa;
-  --follow-me-title: #151312;
-  --follow-me-copy: #4b4744;
-  --follow-me-muted: #9b8f89;
-  --follow-me-card-beige: #e6dfd5;
-  --follow-me-card-mauve: #c5bcc0;
-  --follow-me-card-handle: #d3c2b2;
-  --follow-me-dot: #ed7c57;
+  --follow-me-surface: var(--surface-color);
+  --follow-me-title: var(--color-deep-plum);
+  --follow-me-copy: var(--color-warm-grey);
+  --follow-me-muted: var(--muted-text-color);
+  --follow-me-card-beige: var(--color-warm-sand);
+  --follow-me-card-mauve: var(--color-muted-rose);
+  --follow-me-card-handle: var(--color-soft-olive);
+  --follow-me-dot: var(--color-soft-olive);
 
   position: relative;
   overflow: clip;
   padding: clamp(44px, 8vw, 96px) var(--page-gutter-mobile);
   background:
     radial-gradient(circle at top left, rgb(255 255 255 / 74%), transparent 28%),
-    linear-gradient(180deg, #fffefd 0%, var(--follow-me-surface) 100%);
+    linear-gradient(180deg, var(--surface-color) 0%, var(--follow-me-surface) 100%);
   color: var(--follow-me-copy);
 }
 
@@ -33,7 +33,7 @@
 
 .follow-me .follow-me-shell {
   position: relative;
-  width: min(100%, 1500px);
+  width: min(100%, var(--content-max-width));
   margin: 0 auto;
 }
 
@@ -50,6 +50,7 @@
   color: var(--follow-me-title);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(34px, 10vw, 74px);
+  font-style: normal;
   font-weight: 300;
   line-height: 0.98;
   letter-spacing: -0.04em;
@@ -57,7 +58,7 @@
 }
 
 .follow-me .follow-me-handle {
-  color: #2a2725;
+  color: var(--color-warm-grey);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(18px, 3.6vw, 26px);
   font-weight: 300;
@@ -75,7 +76,7 @@
   width: min(100%, 340px);
   overflow: hidden;
   border-radius: 18px;
-  box-shadow: 0 18px 44px rgb(68 54 48 / 8%);
+  box-shadow: 0 18px 44px rgb(74 47 63 / 8%);
 }
 
 .follow-me .follow-me-card-media {
@@ -111,11 +112,11 @@
 
 .follow-me .follow-me-gallery > :nth-child(4) {
   background: var(--follow-me-card-mauve);
-  color: #faf7f4;
+  color: var(--surface-color);
 }
 
 .follow-me .follow-me-gallery > :nth-child(4) a {
-  color: #faf7f4;
+  color: var(--surface-color);
 }
 
 .follow-me .follow-me-card-heading,
@@ -131,15 +132,15 @@
   height: 0;
   margin: 14px 0;
   border: 0;
-  border-top: 1px solid rgb(118 102 94 / 18%);
+  border-top: 1px solid rgb(90 86 84 / 18%);
 }
 
 .follow-me .follow-me-gallery > :nth-child(4) .follow-me-card-divider {
-  border-top-color: rgb(255 250 247 / 30%);
+  border-top-color: rgb(255 253 249 / 34%);
 }
 
 .follow-me .follow-me-card-statement .follow-me-card-heading-line {
-  color: #514843;
+  color: var(--color-deep-plum);
   font-family: baskerville, 'Times New Roman', serif;
   font-size: clamp(24px, 7vw, 34px);
   font-weight: 400;
@@ -164,7 +165,7 @@
 }
 
 .follow-me .follow-me-card-body-line {
-  color: rgb(69 62 58 / 92%);
+  color: rgb(90 86 84 / 92%);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(18px, 6vw, 28px);
   font-weight: 300;
@@ -173,7 +174,7 @@
 }
 
 .follow-me .follow-me-gallery > :nth-child(4) .follow-me-card-body-line {
-  color: rgb(255 249 245 / 84%);
+  color: rgb(255 253 249 / 84%);
 }
 
 .follow-me .follow-me-card-handle:any-link {
@@ -198,7 +199,7 @@
 }
 
 .follow-me .follow-me-outro-line {
-  color: #2d2a28;
+  color: var(--color-deep-plum);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(24px, 4.8vw, 34px);
   font-weight: 300;
@@ -234,15 +235,15 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: clamp(18px, 1.7vw, 32px);
+    gap: clamp(16px, 1.4vw, 24px);
   }
 
   .follow-me .follow-me-card {
-    flex: 0 0 clamp(132px, 13vw, 210px);
+    flex: 0 0 clamp(108px, 10.4vw, 172px);
   }
 
   .follow-me .follow-me-gallery > .follow-me-card:nth-child(even) {
-    flex: 0 0 clamp(176px, 16vw, 258px);
+    flex: 0 0 clamp(144px, 13vw, 208px);
   }
 
   .follow-me .follow-me-card-media-inner {

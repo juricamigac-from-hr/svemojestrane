@@ -4,18 +4,18 @@
 }
 
 .blog-posts {
-  --blog-posts-border: #efe7de;
-  --blog-posts-text: #3b3431;
-  --blog-posts-muted: #7e726c;
-  --blog-posts-surface: #fff;
-  --blog-posts-accent: #27aae1;
-  --blog-posts-button: #ffc90b;
-  --blog-posts-button-hover: #f1bc00;
+  --blog-posts-border: var(--border-color);
+  --blog-posts-text: var(--color-deep-plum);
+  --blog-posts-muted: var(--muted-text-color);
+  --blog-posts-surface: var(--surface-color);
+  --blog-posts-accent: var(--color-soft-olive);
+  --blog-posts-button: var(--color-deep-plum);
+  --blog-posts-button-hover: var(--color-muted-rose);
 
   padding: clamp(40px, 7vw, 82px) var(--page-gutter-mobile);
   background:
     radial-gradient(circle at top center, rgb(255 248 243 / 90%), transparent 45%),
-    linear-gradient(180deg, #fffdfa 0%, #fff 100%);
+    linear-gradient(180deg, var(--surface-color) 0%, var(--background-color) 100%);
   color: var(--blog-posts-text);
 }
 
@@ -36,6 +36,7 @@
   margin: 0;
   font-family: outfit, var(--heading-font-family), sans-serif;
   font-size: clamp(36px, 8vw, 68px);
+  font-style: normal;
   font-weight: 800;
   line-height: 0.92;
   letter-spacing: -0.04em;
@@ -44,7 +45,7 @@
 
 .blog-posts .blog-posts-subtitle {
   margin: 0;
-  color: #7b6e67;
+  color: var(--color-muted-rose);
   font-family: baskerville, 'Times New Roman', serif;
   font-size: clamp(24px, 4vw, 38px);
   font-style: italic;
@@ -72,7 +73,7 @@
   overflow: hidden;
   border: 1px solid var(--blog-posts-border);
   background: var(--blog-posts-surface);
-  box-shadow: 0 18px 40px rgb(71 50 39 / 6%);
+  box-shadow: 0 18px 40px rgb(74 47 63 / 8%);
 }
 
 .blog-posts .blog-posts-card-media {
@@ -80,7 +81,7 @@
   display: block;
   min-height: 0;
   overflow: hidden;
-  background: linear-gradient(135deg, #f1ebe6 0%, #e6ddd6 100%);
+  background: linear-gradient(135deg, var(--surface-elevated-color) 0%, var(--color-warm-sand) 100%);
 }
 
 .blog-posts .blog-posts-card-media.is-empty {
@@ -109,7 +110,7 @@
   right: 18px;
   padding: 10px 18px;
   background: var(--blog-posts-accent);
-  color: #fff;
+  color: var(--surface-color);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -129,7 +130,7 @@
 
 .blog-posts .blog-posts-card-date {
   margin: 0;
-  color: #8d8079;
+  color: var(--color-muted-rose);
   font-family: baskerville, 'Times New Roman', serif;
   font-size: clamp(20px, 3vw, 24px);
   font-style: italic;
@@ -144,6 +145,7 @@
   line-height: 1.15;
   letter-spacing: -0.03em;
   text-wrap: balance;
+  font-style: normal;
 }
 
 .blog-posts .blog-posts-card-description {
@@ -166,8 +168,8 @@
   margin-top: 8px;
   padding: 13px 22px;
   align-self: end;
-  background: var(--brand-accent-color);
-  color: #fff;
+  background: var(--blog-posts-button);
+  color: var(--surface-color);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: 14px;
   font-weight: 800;
@@ -180,7 +182,7 @@
 .blog-posts .blog-posts-card-cta:hover,
 .blog-posts .blog-posts-card-cta:focus-visible {
   background: var(--blog-posts-button-hover);
-  color: #fff;
+  color: var(--color-deep-plum);
   text-decoration: none;
 }
 
@@ -188,7 +190,7 @@
   margin: 0;
   padding: 32px 24px;
   border: 1px solid var(--blog-posts-border);
-  background: rgb(255 255 255 / 82%);
+  background: rgb(255 253 249 / 82%);
   color: var(--blog-posts-muted);
   text-align: center;
 }

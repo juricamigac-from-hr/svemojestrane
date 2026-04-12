@@ -517,6 +517,60 @@
     ]
   },
   {
+    "id": "newsletter",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "placeholder",
+        "value": "email",
+        "label": "Email Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "submitLabel",
+        "value": "Subscribe",
+        "label": "Submit Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "successMessage",
+        "value": "Thank you for subscribing. Check your inbox soon.",
+        "label": "Success Message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "invalidEmailMessage",
+        "value": "Please enter a valid email address.",
+        "label": "Invalid Email Message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "verificationMessage",
+        "value": "Please complete the verification challenge.",
+        "label": "Verification Message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "submitErrorMessage",
+        "value": "Something went wrong. Please try again.",
+        "label": "Submit Error Message",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "quote",
     "fields": [
       {
