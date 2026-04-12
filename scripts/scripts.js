@@ -16,6 +16,10 @@ import {
   toClassName,
   toCamelCase,
 } from './aem.js';
+import ConsentManager from '../plugins/consent-manager/src/index.js';
+import consentConfig from './consent-config.js';
+
+const consentManager = new ConsentManager(consentConfig);
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -140,6 +144,8 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   doc.documentElement.lang = 'en';
+  await consentManager.init();
+  await consentManager.applyPhase('eager');
   decorateTemplateAndTheme();
   if (getMetadata('page').toLowerCase() === 'blog') {
     doc.body.classList.add('page-blog');
@@ -172,6 +178,7 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   autolinkModals(doc);
+  await consentManager.applyPhase('lazy');
 
   const main = doc.querySelector('main');
   await loadSections(main);
@@ -192,7 +199,10 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  window.setTimeout(() => import('./delayed.js'), 3000);
+  window.setTimeout(async () => {
+    await consentManager.applyPhase('delayed');
+    await import('./delayed.js');
+  }, 3000);
   // load anything that can be postponed to the latest here
 }
 
