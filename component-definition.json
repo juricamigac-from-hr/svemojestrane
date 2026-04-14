@@ -60,6 +60,42 @@
       "id": "blocks",
       "components": [
         {
+          "title": "About Information",
+          "id": "about-information",
+          "model": "about-information",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"about-information\"><div><div><p>Overcome your limited beliefs, reprogram your mindset now</p></div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><p>Helena Kukec</p></div></div></div>",
+              "fields": [
+                {
+                  "name": "quote",
+                  "selector": "div:nth-child(1)>div:nth-child(1)"
+                },
+                {
+                  "name": "accentImage",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>picture>img[src]"
+                },
+                {
+                  "name": "accentImageAlt",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>picture>img[alt]"
+                },
+                {
+                  "name": "portraitImage",
+                  "selector": "div:nth-child(1)>div:nth-child(3)>picture>img[src]"
+                },
+                {
+                  "name": "portraitImageAlt",
+                  "selector": "div:nth-child(1)>div:nth-child(3)>picture>img[alt]"
+                },
+                {
+                  "name": "signature",
+                  "selector": "div:nth-child(2)>div"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Accordion",
           "id": "accordion",
           "model": "accordion",
