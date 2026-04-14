@@ -89,8 +89,8 @@
   color: var(--hero-info-quote-color);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(21px, 4.6vw, 26px);
-  font-style: italic;
-  font-weight: 600;
+  font-style: normal;
+  font-weight: 200;
   line-height: 1.52;
   text-wrap: pretty;
 }
@@ -133,6 +133,10 @@
 }
 
 @media (width >= 900px) {
+  .hero-info {
+    --hero-info-content-offset: 190px;
+  }
+
   .hero-info .hero-info-shell {
     min-height: calc(100dvh - var(--header-height));
     display: flex;
@@ -152,7 +156,7 @@
     z-index: 1;
     max-width: 540px;
     gap: 26px;
-    margin-top: 190px;
+    margin-top: var(--hero-info-content-offset);
     margin-left: 12px;
     padding: 34px 40px 38px 42px;
     border-color: rgb(216 200 182 / 64%);
@@ -183,11 +187,15 @@
   .hero-info .hero-info-media {
     place-self: stretch end;
     width: min(100%, 640px);
-    margin-top: 8px;
+    height: calc(100% - var(--hero-info-content-offset));
+    margin-top: var(--hero-info-content-offset);
+  }
+
+  .hero-info .hero-info-media picture {
+    height: 100%;
   }
 
   .hero-info .hero-info-media img {
-    aspect-ratio: 1 / 1.1;
     height: 100%;
     box-shadow: none;
     border-top-left-radius: 36px;

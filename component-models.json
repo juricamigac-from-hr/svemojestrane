@@ -58,6 +58,51 @@
     ]
   },
   {
+    "id": "about-information",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "quote",
+        "value": "",
+        "label": "Quote",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "accentImage",
+        "label": "Accent Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "accentImageAlt",
+        "label": "Accent Image Alt"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "portraitImage",
+        "label": "Portrait Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "portraitImageAlt",
+        "label": "Portrait Image Alt"
+      },
+      {
+        "component": "richtext",
+        "name": "signature",
+        "value": "",
+        "label": "Signature",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "accordion-item",
     "fields": [
       {
