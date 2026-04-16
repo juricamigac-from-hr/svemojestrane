@@ -1,0 +1,156 @@
+.z-style-container .z-style-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.z-style {
+  --z-style-bg: #ececef;
+  --z-style-title: #18181d;
+  --z-style-copy: #121216;
+  --z-style-signature: #ec6f4c;
+
+  position: relative;
+  overflow: clip;
+  padding: clamp(34px, 7vw, 72px) var(--page-gutter-mobile);
+  background-color: var(--z-style-bg);
+}
+
+.z-style p {
+  margin: 0;
+}
+
+.z-style .z-style-shell {
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--content-max-width));
+  margin: 0 auto;
+}
+
+.z-style .z-style-title {
+  margin: 0 0 clamp(30px, 6vw, 70px);
+  color: var(--z-style-title);
+  font-family: var(--heading-font-family);
+  font-size: clamp(34px, 6.8vw, 70px);
+  font-weight: 400;
+  line-height: 1.06;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.z-style .z-style-layout {
+  display: grid;
+  gap: clamp(22px, 4.5vw, 56px);
+}
+
+.z-style .z-style-media {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.z-style .z-style-media picture,
+.z-style .z-style-media img {
+  display: block;
+  width: 100%;
+}
+
+.z-style .z-style-media img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.z-style .z-style-content {
+  align-self: center;
+}
+
+.z-style .z-style-copy {
+  color: var(--z-style-copy);
+  font-family: outfit, var(--body-font-family), sans-serif;
+}
+
+.z-style .z-style-copy h3 {
+  margin: 0;
+  font-family: outfit, var(--body-font-family), sans-serif;
+  font-size: clamp(42px, 7.2vw, 78px);
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.z-style .z-style-copy p {
+  font-size: clamp(16px, 2.4vw, 20px);
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.z-style .z-style-signature p {
+  margin: 0;
+}
+
+.z-style .z-style-copy p + p {
+  margin-top: clamp(12px, 2.8vw, 20px);
+}
+
+.z-style .z-style-signature {
+  display: inline-block;
+  margin-top: clamp(18px, 3.2vw, 32px);
+  color: var(--z-style-signature);
+  font-family: 'Felicity Aubrielle', 'Parade Regular', 'Brush Script MT', 'Segoe Script', cursive;
+  font-size: clamp(64px, 13vw, 116px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.58;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  transform: rotate(-6deg);
+  transform-origin: left center;
+}
+
+.z-style .z-style-copy p:first-of-type {
+  margin-top: clamp(20px, 3.5vw, 28px);
+}
+
+@media (width >= 900px) {
+  .z-style {
+    padding: clamp(56px, 5vw, 88px) var(--page-gutter-desktop);
+  }
+
+  .z-style .z-style-title {
+    width: min(100%, 1280px);
+    margin-right: auto;
+    margin-left: auto;
+    font-size: clamp(40px, 4.1vw, 72px);
+  }
+
+  .z-style .z-style-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(42px, 5vw, 84px);
+  }
+
+  .z-style.right .z-style-layout {
+    direction: rtl;
+  }
+
+  .z-style.right .z-style-layout > * {
+    direction: ltr;
+  }
+
+  .z-style .z-style-copy h3 {
+    font-size: clamp(48px, 4vw, 64px);
+  }
+
+  .z-style .z-style-copy p {
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.2;
+  }
+
+  .z-style .z-style-signature {
+    margin-top: clamp(24px, 2.8vw, 42px);
+    font-size: clamp(76px, 6.5vw, 122px);
+  }
+
+  .z-style .z-style-shell.z-style-shell-no-media .z-style-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
