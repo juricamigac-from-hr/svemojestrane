@@ -34,6 +34,7 @@
 
 .about-information .about-information-content {
   position: relative;
+  z-index: 3;
   isolation: isolate;
   display: block;
   padding: clamp(28px, 7vw, 48px) var(--page-gutter-mobile) clamp(20px, 6vw, 40px);
@@ -43,7 +44,7 @@
 .about-information .about-information-quote {
   position: relative;
   z-index: 1;
-  display: inline;
+  display: inline-block;
   color: var(--about-information-title);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(38px, 8.3vw, 66px);
@@ -56,7 +57,7 @@
 
 .about-information .about-information-signature {
   position: relative;
-  z-index: 1;
+  z-index: 4;
   display: inline-block;
   margin-left: clamp(20px, 4vw, 42px);
   color: var(--about-information-signature);
@@ -73,6 +74,8 @@
 
 .about-information .about-information-media,
 .about-information .about-information-overlay {
+  position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -93,6 +96,7 @@
 }
 
 .about-information .about-information-overlay {
+  z-index: 2;
   width: min(76vw, 300px);
   justify-self: center;
   margin-top: -116px;
@@ -141,10 +145,11 @@
   .about-information .about-information-quote {
     font-size: clamp(52px, 4.9vw, 74px);
     font-weight: 200;
+    max-width: min(80%, 10ch);
   }
 
   .about-information .about-information-signature {
-    margin-left: clamp(28px, 10.2vw, 224px);
+    margin-left: clamp(28px, 6.1vw, 224px);
     font-size: clamp(72px, 6.6vw, 108px);
     line-height: 0.56;
     transform: translateY(0.2em) rotate(-6deg);
