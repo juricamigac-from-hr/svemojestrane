@@ -1,0 +1,95 @@
+{
+  "definitions": [
+    {
+      "title": "Z Style",
+      "id": "z-style",
+      "model": "z-style",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div class=\"z-style left\"><div><div><h2>I coach provocatively, soulfully and am intuitively gifted to be able to spot new opportunities for you. You are ready to heal and become the powerful woman.</h2></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><h3>I am Gily Pompeo, your life coach</h3><p>Lorem ipsum dolor sit amet, consetetur sadips cing elitr, sed diam nonumy.</p><p>Lorem ipsum dolor sit amet, consetetur sadipscing om elitr, sed diam nonumy eirm od tempor invidunt ut labo re et dolore magna aliquyam erat, sed diam vo luptua.</p></div></div><div><div><p>Helena Kukec</p></div></div></div>",
+          "fields": [
+            {
+              "name": "title",
+              "selector": "div:nth-child(1)>div"
+            },
+            {
+              "name": "image",
+              "selector": "div:nth-child(2)>div:nth-child(1)>picture>img[src]"
+            },
+            {
+              "name": "imageAlt",
+              "selector": "div:nth-child(2)>div:nth-child(1)>picture>img[alt]"
+            },
+            {
+              "name": "content",
+              "selector": "div:nth-child(2)>div:nth-child(2)"
+            },
+            {
+              "name": "signature",
+              "selector": "div:nth-child(3)>div"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "z-style",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes_position",
+          "label": "Image Position",
+          "valueType": "string",
+          "value": "left",
+          "options": [
+            {
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "name": "Right",
+              "value": "right"
+            }
+          ]
+        },
+        {
+          "component": "richtext",
+          "name": "title",
+          "value": "",
+          "label": "Top Title (Optional)",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Image Alt"
+        },
+        {
+          "component": "richtext",
+          "name": "content",
+          "value": "",
+          "label": "Content (Heading + Paragraphs)",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "signature",
+          "value": "",
+          "label": "Signature",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}
