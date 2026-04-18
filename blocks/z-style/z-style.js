@@ -22,6 +22,18 @@ function getContentSource(cell) {
  * @param {Element} block The z-style block element
  */
 export default function decorate(block) {
+  const section = block.closest('.section');
+  const sectionBackground = section?.dataset.background;
+  const sectionColor = section?.dataset.color || section?.dataset.textcolor;
+
+  if (sectionBackground) {
+    block.style.setProperty('--z-style-bg', sectionBackground);
+  }
+
+  if (sectionColor) {
+    block.style.setProperty('--z-style-text', sectionColor);
+  }
+
   const rows = [...block.children];
   const contentIndex = rows.findIndex((row) => row.querySelector('picture'));
 

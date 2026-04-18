@@ -1,14 +1,50 @@
+.columns {
+  --columns-heading-color: var(--columns-text, var(--heading-color));
+  --columns-copy-color: var(--columns-text, var(--muted-text-color));
+
+  padding: clamp(24px, 4vw, 56px);
+  border-radius: 24px;
+  background-color: var(--columns-bg, var(--surface-elevated-color));
+  color: var(--columns-text, inherit);
+}
+
+.columns.full-background {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-radius: 0;
+  background-color: var(--columns-full-background-color, var(--columns-bg, var(--surface-elevated-color)));
+}
+
 .columns > div {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 44px);
+}
+
+.columns > .columns-heading-row {
+  gap: 0;
+  margin-bottom: clamp(20px, 3vw, 40px);
+  justify-items: center;
 }
 
 .columns img {
   width: 100%;
+  height: auto;
 }
 
 .columns > div > div {
+  min-width: 0;
   order: 1;
+}
+
+.columns.full-background > div {
+  width: min(100%, var(--content-max-width));
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .columns > div > .columns-img-col {
@@ -17,17 +53,62 @@
 
 .columns > div > .columns-img-col img {
   display: block;
+  border-radius: 16px;
+}
+
+.columns > .columns-heading-row :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: var(--columns-heading-color);
+  font-family: var(--heading-font-family);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.columns p,
+.columns li {
+  margin: 0;
+  color: var(--columns-copy-color);
+  font-family: var(--body-font-family);
+  font-size: clamp(16px, 1.6vw, 28px);
+  line-height: 1.5;
+}
+
+.columns p + p {
+  margin-top: 0.7em;
+}
+
+.columns :is(ul, ol) {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+.columns li + li {
+  margin-top: 0.35em;
+}
+
+main > .section.columns-container > div {
+  padding-top: clamp(26px, 5vw, 74px);
+  padding-bottom: clamp(26px, 5vw, 74px);
 }
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(52px, 6vw, 120px);
+    align-items: start;
   }
 
-  .columns > div > div {
-    flex: 1;
-    order: unset;
+  .columns > .columns-heading-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .columns.columns-3-cols > div {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(28px, 3.2vw, 56px);
   }
 }

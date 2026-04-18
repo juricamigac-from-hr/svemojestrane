@@ -5,9 +5,9 @@
 
 .z-style {
   --z-style-bg: #ececef;
-  --z-style-title: #18181d;
-  --z-style-copy: #121216;
-  --z-style-signature: #ec6f4c;
+  --z-style-title: var(--z-style-text, #18181d);
+  --z-style-copy: var(--z-style-text, #121216);
+  --z-style-signature: var(--z-style-text, #ec6f4c);
 
   position: relative;
   overflow: clip;

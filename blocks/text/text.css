@@ -1,0 +1,40 @@
+main > .section.text-container {
+  background-color: var(--text-block-background, var(--light-color));
+  color: var(--text-block-color, var(--color-deep-plum));
+}
+
+main > .section.text-container > div {
+  max-width: none;
+
+}
+
+.text {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: clamp(20px, 3.2vw, 44px);
+  color: inherit;
+  text-align: var(--text-block-align, left);
+}
+
+.text :is(h1, h2, h3, h4, h5, h6, p, li, blockquote) {
+  color: inherit;
+  font-family: baskerville, "Times New Roman", serif;
+  font-style: italic;
+  margin:0.3em 0;
+}
+
+.text :is(p, li, blockquote) {
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.6;
+}
+
+.text :is(ul, ol) {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+  padding-left: 1.3em;
+}
+
+.text a:any-link {
+  color: inherit;
+  text-underline-offset: 0.12em;
+}
