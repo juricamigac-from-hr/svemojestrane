@@ -18,6 +18,18 @@ function getPicture(cell) {
  * @param {Element} block The about-information block element
  */
 export default function decorate(block) {
+  const section = block.closest('.section');
+  const sectionBackground = section?.dataset.background;
+  const sectionColor = section?.dataset.color || section?.dataset.textcolor;
+
+  if (sectionBackground) {
+    block.style.setProperty('--about-information-surface', sectionBackground);
+  }
+
+  if (sectionColor) {
+    block.style.setProperty('--about-information-text', sectionColor);
+  }
+
   const [primaryRow, secondaryRow] = [...block.children];
   const quoteSource = getTextSource(getCell(primaryRow, 0));
   const accentPicture = getPicture(getCell(primaryRow, 1));

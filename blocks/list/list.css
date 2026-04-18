@@ -1,0 +1,104 @@
+.list-container .list-wrapper {
+  padding-top: clamp(28px, 5vw, 64px);
+  padding-bottom: clamp(28px, 5vw, 64px);
+}
+
+.list {
+  padding: clamp(24px, 4vw, 56px);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  background-color: var(--surface-color);
+}
+
+.list .list-header {
+  margin-bottom: clamp(28px, 4vw, 52px);
+}
+
+.list .list-header h1,
+.list .list-header h2,
+.list .list-header h3,
+.list .list-header h4,
+.list .list-header h5,
+.list .list-header h6 {
+  margin: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: clamp(36px, 5vw, 62px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.list .list-header p {
+  max-width: 56ch;
+  margin: clamp(14px, 2vw, 20px) 0 0;
+  color: var(--muted-text-color);
+  font-family: var(--body-font-family);
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.6;
+}
+
+.list .list-grid {
+  display: grid;
+  gap: clamp(16px, 2.2vw, 28px);
+}
+
+.list .list-item {
+  min-width: 0;
+  padding: clamp(18px, 2.2vw, 30px);
+}
+
+.list .list-item h1,
+.list .list-item h2,
+.list .list-item h3,
+.list .list-item h4,
+.list .list-item h5,
+.list .list-item h6 {
+  margin: 0 0 clamp(10px, 1.5vw, 16px);
+  color: var(--heading-color);
+  font-family: var(--body-font-family);
+  font-size: clamp(24px, 2.5vw, 34px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.list .list-item ul,
+.list .list-item ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list .list-item li {
+  position: relative;
+  padding-left: 1.5em;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.6;
+}
+
+.list .list-item li + li {
+  margin-top: 10px;
+}
+
+.list .list-item li::before {
+  content: '\2022';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--brand-accent-color);
+  font-size: 1.15em;
+  line-height: 1.2;
+}
+
+@media (width >= 900px) {
+  .list .list-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

@@ -4,7 +4,7 @@
 }
 
 .information {
-  min-height: 100dvh;
+  min-height: auto;
   padding: 0;
   background:
     radial-gradient(circle at top left, rgb(255 255 255 / 42%), transparent 34%),
@@ -18,13 +18,13 @@
 
 .information .information-shell {
   display: flex;
-  min-height: calc(100dvh - (2 * clamp(28px, 4vw, 48px)));
+  min-height: auto;
   max-width: var(--content-max-width);
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0 auto;
-  padding: clamp(28px, 4vw, 48px) var(--page-gutter-mobile);
+  padding: clamp(18px, 3vw, 32px) var(--page-gutter-mobile);
 }
 
 .information .information-layout {
