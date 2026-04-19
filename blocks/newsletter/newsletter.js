@@ -1,9 +1,4 @@
-import { loadScript } from '../../scripts/aem.js';
-
-const NEWSLETTER_SUBMIT_ENDPOINT = '/newsletter/subscribe';
-const NEWSLETTER_ALTCHA_CHALLENGE_URL = '/altcha/challenge';
-const NEWSLETTER_ALTCHA_WIDGET_SRC = `${window.hlx.codeBasePath}/scripts/altcha/altcha.js`;
-const NEWSLETTER_ALTCHA_FIELD_NAME = 'altcha';
+const NEWSLETTER_SUBMIT_ENDPOINT = 'https://forwarder.helenakukec.from.hr/subscribe';
 
 const DEFAULT_CONTENT = {
   title: 'Subscribe and find out more about us',
@@ -11,7 +6,6 @@ const DEFAULT_CONTENT = {
   submitLabel: 'Subscribe',
   successMessage: 'Thank you for subscribing. Check your inbox soon.',
   invalidEmailMessage: 'Please enter a valid email address.',
-  verificationMessage: 'Please complete the verification challenge.',
   submitErrorMessage: 'Something went wrong. Please try again.',
 };
 
@@ -57,7 +51,6 @@ function extractContent(block) {
     submitLabel: getCellText(getCell(block, 1, 1), DEFAULT_CONTENT.submitLabel),
     successMessage: getCellText(getCell(block, 2, 0), DEFAULT_CONTENT.successMessage),
     invalidEmailMessage: getCellText(getCell(block, 2, 1), DEFAULT_CONTENT.invalidEmailMessage),
-    verificationMessage: getCellText(getCell(block, 3, 0), DEFAULT_CONTENT.verificationMessage),
     submitErrorMessage: getCellText(getCell(block, 3, 1), DEFAULT_CONTENT.submitErrorMessage),
   };
 }
@@ -94,30 +87,7 @@ function validateEmail(input, invalidEmailMessage) {
   return true;
 }
 
-function getAltchaPayload(form) {
-  const payloadField = form.querySelector(`input[name="${NEWSLETTER_ALTCHA_FIELD_NAME}"]`);
-  return payloadField?.value?.trim() || '';
-}
-
-function createAltchaWidget(verificationMessage) {
-  const widget = createElement('altcha-widget', 'newsletter-altcha');
-  widget.setAttribute('challengeurl', NEWSLETTER_ALTCHA_CHALLENGE_URL);
-  widget.setAttribute('name', NEWSLETTER_ALTCHA_FIELD_NAME);
-  widget.setAttribute('auto', 'off');
-  widget.setAttribute('hidefooter', '');
-  widget.setAttribute('hidelogo', '');
-
-  const language = document.documentElement.lang?.trim();
-  if (language) {
-    widget.setAttribute('language', language);
-  }
-
-  widget.setAttribute('aria-label', verificationMessage);
-
-  return widget;
-}
-
-async function submitForm(form, submitButton, status, thankYou, content, widget) {
+async function submitForm(form, input, submitButton, status, thankYou, content) {
   if (form.dataset.submitting === 'true') {
     return;
   }
@@ -126,10 +96,15 @@ async function submitForm(form, submitButton, status, thankYou, content, widget)
   submitButton.disabled = true;
 
   try {
-    const formData = new FormData(form);
+    const email = input.value.trim();
     const response = await fetch(NEWSLETTER_SUBMIT_ENDPOINT, {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+      }),
     });
 
     if (!response.ok) {
@@ -140,16 +115,10 @@ async function submitForm(form, submitButton, status, thankYou, content, widget)
     thankYou.hidden = false;
     form.hidden = true;
     form.reset();
-    if (typeof widget.reset === 'function') {
-      widget.reset();
-    }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
     setStatus(status, content.submitErrorMessage, 'error');
-    if (typeof widget.reset === 'function') {
-      widget.reset();
-    }
   } finally {
     form.dataset.submitting = 'false';
     submitButton.disabled = false;
@@ -171,7 +140,6 @@ export default async function decorate(block) {
   const input = createElement('input', 'newsletter-input');
   const submitButton = createElement('button', 'newsletter-submit');
   const submitArrow = createElement('span', 'newsletter-submit-arrow', '→');
-  const verificationSlot = createElement('div', 'newsletter-verification-slot');
   const status = createElement('p', 'newsletter-status');
   const thankYou = createElement('p', 'newsletter-thank-you', content.successMessage);
 
@@ -196,62 +164,11 @@ export default async function decorate(block) {
 
   field.append(label, input);
   formRow.append(field, submitButton);
-  form.append(formRow, verificationSlot, status);
+  form.append(formRow, status);
   copy.append(buildTitle(content.titleCell));
   panel.append(form, thankYou);
   shell.append(copy, panel);
   block.append(shell);
-
-  if (!NEWSLETTER_ALTCHA_CHALLENGE_URL) {
-    // eslint-disable-next-line no-console
-    console.warn('Newsletter ALTCHA challenge URL is not configured.');
-    setStatus(status, content.submitErrorMessage, 'error');
-    submitButton.disabled = true;
-    return;
-  }
-
-  try {
-    await loadScript(NEWSLETTER_ALTCHA_WIDGET_SRC, { type: 'module' });
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Unable to load ALTCHA widget script.', error);
-    setStatus(status, content.submitErrorMessage, 'error');
-    submitButton.disabled = true;
-    return;
-  }
-
-  const widget = createAltchaWidget(content.verificationMessage);
-  verificationSlot.append(widget);
-
-  let submitAfterVerification = false;
-
-  widget.addEventListener('statechange', (event) => {
-    const state = event.detail?.state;
-
-    if (state === 'verified') {
-      clearStatus(status);
-      return;
-    }
-
-    if (state === 'verifying') {
-      setStatus(status, content.verificationMessage);
-      return;
-    }
-
-    if (submitAfterVerification && ['error', 'expired', 'unverified'].includes(state)) {
-      setStatus(status, content.verificationMessage, 'error');
-    }
-  });
-
-  widget.addEventListener('verified', async () => {
-    if (!submitAfterVerification) {
-      clearStatus(status);
-      return;
-    }
-
-    submitAfterVerification = false;
-    await submitForm(form, submitButton, status, thankYou, content, widget);
-  });
 
   input.addEventListener('input', () => {
     input.setCustomValidity('');
@@ -272,15 +189,6 @@ export default async function decorate(block) {
       return;
     }
 
-    if (!getAltchaPayload(form)) {
-      submitAfterVerification = true;
-      setStatus(status, content.verificationMessage);
-      if (typeof widget.verify === 'function') {
-        widget.verify();
-      }
-      return;
-    }
-
-    await submitForm(form, submitButton, status, thankYou, content, widget);
+    await submitForm(form, input, submitButton, status, thankYou, content);
   });
 }

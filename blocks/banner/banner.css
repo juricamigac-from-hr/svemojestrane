@@ -4,7 +4,7 @@
 }
 
 .banner {
-  --banner-background: #5f4a5f;
+  --banner-background: var(--color-deep-plum);
   --banner-background-dark: #4e3b4f;
   --banner-heading-color: rgb(255 242 235 / 95%);
   --banner-copy-color: rgb(245 233 227 / 88%);

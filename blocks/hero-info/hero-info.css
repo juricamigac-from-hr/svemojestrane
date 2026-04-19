@@ -161,6 +161,8 @@
     padding: 34px 40px 38px 42px;
     border-color: rgb(216 200 182 / 64%);
     box-shadow: 0 32px 72px rgb(74 47 63 / 10%);
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
   }
 
   .hero-info .hero-info-title {
