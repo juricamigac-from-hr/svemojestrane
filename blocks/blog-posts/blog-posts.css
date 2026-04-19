@@ -208,5 +208,6 @@
 
   .blog-posts .blog-posts-card {
     grid-template-rows: 255px 1fr;
+    border-radius: 36px;
   }
 }

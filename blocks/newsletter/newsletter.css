@@ -104,7 +104,6 @@
   margin: 0;
   border: 0;
   border-bottom: 2px solid var(--newsletter-border);
-  padding: 0 0 14px;
   background: none;
   color: var(--newsletter-text);
   font-family: outfit, var(--body-font-family), sans-serif;
@@ -130,33 +129,6 @@
 .newsletter .newsletter-submit-arrow {
   font-size: 1.15em;
   line-height: 1;
-}
-
-.newsletter .newsletter-verification-slot {
-  display: flex;
-  align-items: flex-start;
-  min-height: 84px;
-  padding-top: 8px;
-}
-
-.newsletter altcha-widget.newsletter-altcha {
-  --altcha-border-width: 1px;
-  --altcha-border-radius: 18px;
-  --altcha-color-base: rgb(255 255 255 / 10%);
-  --altcha-color-border: rgb(255 255 255 / 28%);
-  --altcha-color-border-focus: rgb(255 255 255 / 88%);
-  --altcha-color-text: #fff9f5;
-  --altcha-color-text-light: rgb(255 242 235 / 78%);
-  --altcha-color-error-text: #fff1ec;
-  --altcha-color-footer-bg: transparent;
-  --altcha-max-width: 320px;
-
-  display: inline-block;
-  width: min(100%, 320px);
-  max-width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 24px rgb(118 55 37 / 12%);
 }
 
 .newsletter .newsletter-status,
@@ -216,7 +188,4 @@
     padding-left: 20px;
   }
 
-  .newsletter .newsletter-verification-slot {
-    padding-top: 10px;
-  }
 }
