@@ -1,21 +1,21 @@
 const DEFAULT_CONTENT = {
-  bannerTitle: 'Hello traveller, it\'s cookie time!',
-  bannerDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
-  preferencesTitle: 'Consent Preferences Center',
-  usageTitle: 'Cookie Usage',
+  bannerTitle: 'Pozdrav putniče, vrijeme je za kolačić!',
+  bannerDescription: 'Koristimo analitičke kolačiće za analizu prometa na našoj web stranici. Informacije o vašem korištenju stranice možemo dijeliti s našim analitičkim partnerima, koji ih mogu povezati s drugim podacima koje ste im dali ili koje su prikupili korištenjem svojih usluga.',
+  preferencesTitle: 'Centar za postavke privole',
+  usageTitle: 'Upotreba kolačića',
   usageDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  moreInfoTitle: 'More information',
-  moreInfoText: 'For any query in relation to my policy on cookies and your choices, please',
-  moreInfoLinkLabel: 'contact me.',
-  moreInfoLinkHref: '#yourdomain.com',
-  acceptAllLabel: 'Accept all',
-  rejectAllLabel: 'Reject all',
-  managePreferencesLabel: 'Manage preferences',
-  savePreferencesLabel: 'Save preferences',
-  closeModalLabel: 'Close modal',
-  alwaysEnabledLabel: 'Always Enabled',
+  moreInfoTitle: 'Više informacija',
+  moreInfoText: 'Za sve upite vezane uz našu politiku kolačića i vaše odabire, molimo',
+  moreInfoLinkLabel: 'da nas kontaktirate.',
+  moreInfoLinkHref: 'mailto:helena.svemojestrane@gmail.com',
+  acceptAllLabel: 'Prihvati sve',
+  rejectAllLabel: 'Odbij sve',
+  managePreferencesLabel: 'Upravljal preferencama',
+  savePreferencesLabel: 'Spremi preference',
+  closeModalLabel: 'Zatvori popup',
+  alwaysEnabledLabel: 'Uvijek omogućeno',
   links: [
-    { label: 'Privacy Policy', href: '#link' },
+    { label: 'Polica privatnosti', href: '#link' },
     { label: 'Terms and conditions', href: '#link' },
   ],
 };
@@ -85,6 +85,7 @@ export default function createUI(manager, config) {
   let expandedSections = new Set();
   let bindEvents = () => {};
   let render = () => {};
+
   const content = getContent(config);
 
   render = () => {

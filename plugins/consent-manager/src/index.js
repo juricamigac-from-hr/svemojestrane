@@ -60,6 +60,8 @@ function createDefaultCategories(categories) {
 export default class ConsentManager {
   constructor(config = {}) {
     this.config = deepMerge(DEFAULT_CONFIG, config);
+    console.log(this.config);
+    
     this.storage = createStorage(this.config.storage);
     this.emitter = createEmitter();
     this.state = null;
