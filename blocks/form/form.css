@@ -168,3 +168,260 @@
 .form .toggle-wrapper input:checked + .slider::before {
   transform: translateX(24px);
 }
+
+.form-container .form-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.form.horizontal {
+  --form-horizontal-content-max-width: 1280px;
+  --form-horizontal-background: color-mix(in srgb, var(--brand-accent-color) 72%, #ea7750);
+  --form-horizontal-background-dark: color-mix(in srgb, var(--form-horizontal-background) 88%, #d75f3f);
+  --form-horizontal-dot: rgb(137 63 45 / 18%);
+  --form-horizontal-text: rgb(255 249 245 / 98%);
+  --form-horizontal-text-muted: color-mix(in srgb, var(--form-horizontal-text) 78%, transparent);
+  --form-horizontal-border: color-mix(in srgb, var(--form-horizontal-text) 74%, transparent);
+
+  padding: clamp(40px, 7vw, 84px) var(--page-gutter-mobile);
+  background:
+    radial-gradient(circle, var(--form-horizontal-dot) 1.5px, transparent 1.8px),
+    linear-gradient(180deg, var(--form-horizontal-background) 0%, var(--form-horizontal-background-dark) 100%);
+  background-size: 40px 40px, auto;
+  color: var(--form-horizontal-text);
+}
+
+.form.horizontal form {
+  display: grid;
+  gap: 20px;
+  width: min(100%, var(--form-horizontal-content-max-width));
+  margin: 0 auto;
+}
+
+.form.horizontal form > .submit-wrapper {
+  order: 100;
+  justify-self: stretch;
+}
+
+.form.horizontal form > .field-wrapper + .field-wrapper,
+.form.horizontal form fieldset .field-wrapper + .field-wrapper {
+  margin-top: 0;
+}
+
+.form.horizontal label,
+.form.horizontal fieldset > legend {
+  margin-bottom: 0.35em;
+  color: var(--form-horizontal-text-muted);
+  font-family: outfit, var(--body-font-family), sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.form.horizontal .selection-wrapper label {
+  color: var(--form-horizontal-text);
+  font-size: 16px;
+}
+
+.form.horizontal .field-wrapper:not(.selection-wrapper) > label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.form.horizontal .plaintext-wrapper p {
+  margin: 0;
+  color: var(--form-horizontal-text);
+  font-family: outfit, var(--body-font-family), sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+
+.form.horizontal input:not([type='checkbox'], [type='radio']),
+.form.horizontal select,
+.form.horizontal textarea {
+  width: 100%;
+  max-width: none;
+  border: 0;
+  border-bottom: 2px solid var(--form-horizontal-border);
+  border-radius: 0;
+  padding: 0 0 10px;
+  background: transparent;
+  color: var(--form-horizontal-text);
+  font-family: outfit, var(--body-font-family), sans-serif;
+  font-size: clamp(19px, 2.3vw, 24px);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.form.horizontal input:not([type='checkbox'], [type='radio'])::placeholder,
+.form.horizontal textarea::placeholder {
+  color: var(--form-horizontal-text-muted);
+  opacity: 1;
+}
+
+.form.horizontal input:not([type='checkbox'], [type='radio']):hover,
+.form.horizontal input:not([type='checkbox'], [type='radio']):focus,
+.form.horizontal select:hover,
+.form.horizontal select:focus,
+.form.horizontal textarea:hover,
+.form.horizontal textarea:focus {
+  border-bottom-color: rgb(255 255 255 / 96%);
+  outline: none;
+}
+
+.form.horizontal .submit-wrapper .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  border: 0;
+  border-bottom: 2px solid var(--form-horizontal-border);
+  border-radius: 0;
+  padding: 0 0 10px;
+  width: 100%;
+  background: none;
+  color: var(--form-horizontal-text);
+  font-family: outfit, var(--body-font-family), sans-serif;
+  font-size: clamp(19px, 2vw, 26px);
+  font-weight: 300;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.form.horizontal .submit-wrapper .button::after {
+  content: '→';
+  font-size: 1.15em;
+  line-height: 1;
+}
+
+.form.horizontal .submit-wrapper .button:hover,
+.form.horizontal .submit-wrapper .button:focus-visible {
+  border-bottom-color: rgb(255 255 255 / 96%);
+  background: none;
+  text-decoration: none;
+  opacity: 0.88;
+}
+
+.form.horizontal .submit-wrapper .button:disabled,
+.form.horizontal .submit-wrapper .button:disabled:hover {
+  border-bottom-color: var(--form-horizontal-border);
+  background: none;
+  color: var(--form-horizontal-text);
+  opacity: 0.64;
+}
+
+.form.horizontal input[type='checkbox'],
+.form.horizontal input[type='radio'] {
+  accent-color: var(--form-horizontal-text);
+}
+
+.form.horizontal .field-wrapper.selection-wrapper {
+  width: max-content;
+  margin: 0;
+}
+
+.form.horizontal .field-wrapper.selection-wrapper input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form.horizontal .field-wrapper.selection-wrapper label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 1.5px solid var(--form-horizontal-border);
+  border-radius: 6px;
+  padding: 10px 18px;
+  color: var(--form-horizontal-text);
+  font-family: outfit, var(--body-font-family), sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.form.horizontal .field-wrapper.selection-wrapper input[type='checkbox'] + label:hover {
+  border-color: rgb(255 255 255 / 96%);
+}
+
+.form.horizontal .field-wrapper.selection-wrapper input[type='checkbox']:focus-visible + label {
+  border-color: rgb(255 255 255 / 96%);
+  outline: 2px solid rgb(255 255 255 / 45%);
+  outline-offset: 2px;
+}
+
+.form.horizontal .field-wrapper.selection-wrapper input[type='checkbox']:checked + label {
+  border-color: rgb(255 255 255 / 96%);
+  background: rgb(255 255 255 / 20%);
+  color: var(--form-horizontal-text);
+}
+
+.form.horizontal fieldset {
+  border: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.form.horizontal .fieldset-wrapper {
+  overflow-x: auto;
+}
+
+@media (width >= 900px) {
+  .form.horizontal {
+    padding-right: var(--page-gutter-desktop);
+    padding-left: var(--page-gutter-desktop);
+  }
+
+  .form.horizontal form {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: end;
+  }
+
+  .form.horizontal form > .heading-wrapper,
+  .form.horizontal form > .plaintext-wrapper {
+    grid-column: 1 / -1;
+  }
+
+  .form.horizontal form > .field-wrapper:not(.submit-wrapper, .fieldset-wrapper, .heading-wrapper, .plaintext-wrapper) {
+    grid-column: 1;
+    grid-row: 0;
+  }
+
+  .form.horizontal form > .fieldset-wrapper {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+    overflow: visible;
+  }
+
+  .form.horizontal form > .submit-wrapper {
+    order: 0;
+    grid-column: 3;
+    grid-row: 2;
+    place-self: end;
+  }
+
+  .form.horizontal .submit-wrapper .button {
+    width: auto;
+    min-width: 160px;
+    padding-left: 20px;
+  }
+}
