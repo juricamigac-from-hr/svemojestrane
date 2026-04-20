@@ -117,10 +117,21 @@ async function fetchBlogs(source) {
 }
 
 function formatDateParts(value) {
-  if (!value) return null;
+  if (typeof value !== 'string') return null;
 
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return null;
+  const trimmedValue = value.trim();
+  const dateMatch = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(trimmedValue);
+  if (!dateMatch) return null;
+
+  const day = Number.parseInt(dateMatch[1], 10);
+  const month = Number.parseInt(dateMatch[2], 10);
+  const year = Number.parseInt(dateMatch[3], 10);
+
+  const date = new Date(year, month - 1, day);
+  const isValidDate = date.getFullYear() === year
+    && date.getMonth() === month - 1
+    && date.getDate() === day;
+  if (!isValidDate) return null;
 
   const locale = document.documentElement.lang || 'en';
   return {
@@ -223,7 +234,6 @@ function createCard(blog) {
   } else {
     media.classList.add('is-empty');
   }
-
   const dateParts = formatDateParts(blog.date);
   if (dateParts) {
     const badge = document.createElement('div');

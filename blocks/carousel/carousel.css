@@ -7,8 +7,8 @@
   --carousel-shell-width: min(100%, calc(var(--content-max-width) + clamp(3rem, 10vw, 9rem)));
   --carousel-card-radius: clamp(1.5rem, 4vw, 2.25rem);
   --carousel-nav-size: 3.25rem;
-  --carousel-surface: rgb(255 255 255 / 74%);
-  --carousel-border: rgb(15 15 16 / 12%);
+  --carousel-surface: rgb(255 253 249 / 76%);
+  --carousel-border: rgb(232 220 203 / 18%);
 
   position: relative;
   padding: clamp(2.5rem, 7vw, 5.5rem) var(--page-gutter-mobile);
@@ -31,7 +31,7 @@
   height: clamp(10rem, 28vw, 18rem);
   top: 8%;
   left: min(10vw, 5rem);
-  background: rgb(111 0 255 / 16%);
+  background: rgb(201 167 160 / 18%);
 }
 
 .carousel::after {
@@ -39,7 +39,7 @@
   height: clamp(12rem, 34vw, 22rem);
   right: min(6vw, 4rem);
   bottom: 4%;
-  background: rgb(68 219 197 / 14%);
+  background: rgb(138 154 122 / 18%);
 }
 
 .carousel.full::after {
@@ -103,8 +103,8 @@
   border-radius: var(--carousel-card-radius);
   overflow: hidden;
   isolation: isolate;
-  background: #111;
-  box-shadow: 0 24px 54px rgb(7 8 16 / 18%);
+  background: var(--color-deep-plum);
+  box-shadow: 0 24px 54px rgb(74 47 63 / 20%);
 }
 
 .carousel .carousel-slide-card::after {
@@ -113,8 +113,8 @@
   content: '';
   z-index: 1;
   background:
-    linear-gradient(180deg, rgb(8 10 17 / 6%) 0%, rgb(8 10 17 / 10%) 34%, rgb(8 10 17 / 82%) 100%),
-    linear-gradient(140deg, rgb(8 10 17 / 24%) 0%, rgb(8 10 17 / 0%) 45%);
+    linear-gradient(180deg, rgb(74 47 63 / 8%) 0%, rgb(74 47 63 / 12%) 34%, rgb(74 47 63 / 82%) 100%),
+    linear-gradient(140deg, rgb(90 86 84 / 18%) 0%, rgb(74 47 63 / 0%) 45%);
 }
 
 .carousel .carousel-slide-image,
@@ -146,11 +146,11 @@
   gap: var(--space-s);
   max-width: min(100%, 31rem);
   padding: clamp(1rem, 3vw, 1.5rem);
-  border: 1px solid rgb(255 255 255 / 14%);
+  border: 1px solid rgb(232 220 203 / 18%);
   border-radius: clamp(1rem, 2.5vw, 1.5rem);
-  background: linear-gradient(145deg, rgb(10 12 18 / 86%), rgb(10 12 18 / 52%));
+  background: linear-gradient(145deg, rgb(74 47 63 / 88%), rgb(74 47 63 / 58%));
   backdrop-filter: blur(14px);
-  color: var(--color-background);
+  color: var(--surface-color);
 }
 
 .carousel .carousel-slide-content h1,
@@ -160,7 +160,7 @@
 .carousel .carousel-slide-content h5,
 .carousel .carousel-slide-content h6 {
   margin: 0;
-  color: var(--light-color);
+  color: rgb(247 241 234 / 98%);
   font-family: baskerville, 'Times New Roman', serif;
   font-size: clamp(2.2rem, 7vw, 3rem);
   font-weight: 400;
@@ -172,7 +172,7 @@
 .carousel .carousel-slide-content p {
   margin: 0;
   max-width: 30ch;
-  color: rgb(255 255 255 / 76%);
+  color: rgb(232 220 203 / 86%);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(0.95rem, 2.4vw, 1.08rem);
   font-weight: 300;
@@ -226,7 +226,7 @@
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgb(15 15 16 / 18%);
+  background: rgb(90 86 84 / 20%);
   opacity: 1;
   transition:
     width 0.25s ease,
@@ -236,7 +236,7 @@
 
 .carousel .carousel-pagination-bullet.is-active {
   width: 2.85rem;
-  background: #111;
+  background: var(--color-deep-plum);
 }
 
 .carousel.full {
@@ -271,15 +271,15 @@
   overflow: hidden;
   aspect-ratio: 1.08;
   border-radius: clamp(1rem, 2vw, 1.1rem);
-  background: #111;
-  box-shadow: 0 16px 34px rgb(12 12 14 / 10%);
+  background: var(--color-deep-plum);
+  box-shadow: 0 16px 34px rgb(74 47 63 / 12%);
 }
 
 .carousel.full .carousel-slide-media-full::after {
   position: absolute;
   inset: 0;
   content: '';
-  background: linear-gradient(180deg, rgb(12 12 14 / 8%) 0%, rgb(12 12 14 / 22%) 100%);
+  background: linear-gradient(180deg, rgb(74 47 63 / 8%) 0%, rgb(74 47 63 / 24%) 100%);
 }
 
 .carousel.full .carousel-slide-media-full::before {
@@ -287,7 +287,7 @@
   inset: clamp(1rem, 2vw, 1.25rem);
   z-index: 1;
   content: '';
-  border: 1px solid rgb(255 255 255 / 86%);
+  border: 1px solid rgb(232 220 203 / 86%);
   border-radius: clamp(0.85rem, 1.8vw, 1rem);
 }
 
@@ -311,15 +311,15 @@
   display: grid;
   gap: 0.55rem;
   padding: clamp(1rem, 2vw, 1.35rem);
-  border: 1px solid rgb(255 255 255 / 20%);
+  border: 1px solid rgb(232 220 203 / 20%);
   border-radius: clamp(0.85rem, 1.8vw, 1rem);
-  background: linear-gradient(180deg, rgb(10 12 18 / 72%), rgb(10 12 18 / 46%));
+  background: linear-gradient(180deg, rgb(74 47 63 / 74%), rgb(74 47 63 / 48%));
   backdrop-filter: blur(12px);
 }
 
 .carousel.full .carousel-slide-title-full {
   margin: 0;
-  color: var(--light-color);
+  color: rgb(247 241 234 / 98%);
   font-family: baskerville, 'Times New Roman', serif;
   font-size: clamp(1.8rem, 3.6vw, 3rem);
   font-weight: 400;
@@ -333,7 +333,7 @@
 
 .carousel.full .carousel-slide-description-full p {
   margin: 0;
-  color: rgb(255 255 255 / 82%);
+  color: rgb(232 220 203 / 86%);
   font-family: outfit, var(--body-font-family), sans-serif;
   font-size: clamp(0.96rem, 1.3vw, 1.06rem);
   font-weight: 300;
@@ -345,7 +345,7 @@
 }
 
 .carousel.full .carousel-slide-description-full strong {
-  color: rgb(255 255 255 / 94%);
+  color: rgb(247 241 234 / 96%);
   font-family: outfit, var(--body-font-family), sans-serif;
   letter-spacing: 0.02em;
 }
@@ -376,7 +376,7 @@
 }
 
 .carousel.full .carousel-pagination-bullet {
-  background: rgb(15 15 16 / 14%);
+  background: rgb(90 86 84 / 18%);
 }
 
 .carousel.is-single .carousel-viewport {

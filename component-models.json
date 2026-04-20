@@ -58,6 +58,51 @@
     ]
   },
   {
+    "id": "about-information",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "quote",
+        "value": "",
+        "label": "Quote",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "accentImage",
+        "label": "Accent Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "accentImageAlt",
+        "label": "Accent Image Alt"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "portraitImage",
+        "label": "Portrait Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "portraitImageAlt",
+        "label": "Portrait Image Alt"
+      },
+      {
+        "component": "richtext",
+        "name": "signature",
+        "value": "",
+        "label": "Signature",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "accordion-item",
     "fields": [
       {
@@ -517,6 +562,60 @@
     ]
   },
   {
+    "id": "newsletter",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "placeholder",
+        "value": "email",
+        "label": "Email Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "submitLabel",
+        "value": "Subscribe",
+        "label": "Submit Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "successMessage",
+        "value": "Thank you for subscribing. Check your inbox soon.",
+        "label": "Success Message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "invalidEmailMessage",
+        "value": "Please enter a valid email address.",
+        "label": "Invalid Email Message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "verificationMessage",
+        "value": "Please complete the verification challenge.",
+        "label": "Verification Message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "submitErrorMessage",
+        "value": "Something went wrong. Please try again.",
+        "label": "Submit Error Message",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "quote",
     "fields": [
       {
@@ -632,6 +731,62 @@
         "component": "reference",
         "name": "posterImage",
         "label": "Poster Image",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "z-style",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes_position",
+        "label": "Image Position",
+        "valueType": "string",
+        "value": "left",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Top Title (Optional)",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt"
+      },
+      {
+        "component": "richtext",
+        "name": "content",
+        "value": "",
+        "label": "Content (Heading + Paragraphs)",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "signature",
+        "value": "",
+        "label": "Signature",
         "valueType": "string"
       }
     ]

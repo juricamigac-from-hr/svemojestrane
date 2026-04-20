@@ -185,7 +185,7 @@ function buildCard(post) {
   const cta = document.createElement('a');
   cta.className = 'blog-posts-card-cta';
   cta.href = post.url;
-  cta.textContent = 'Read more';
+  cta.textContent = 'Pročitaj više';
   body.append(cta);
 
   article.append(mediaLink, body);

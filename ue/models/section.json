@@ -44,6 +44,7 @@
         "fragment",
         "form",
         "follow-me",
+        "about-information",
         "hero",
         "hero-info",
         "image-text",
@@ -56,6 +57,7 @@
         "teaser",
         "text",
         "video",
+        "z-style",
         "product-recommendations"
       ]
     }

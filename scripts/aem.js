@@ -220,6 +220,8 @@ async function loadScript(src, attrs) {
     if (!document.querySelector(`head > script[src="${src}"]`)) {
       const script = document.createElement('script');
       script.src = src;
+      script.nonce = 'aem';
+      script['strict-src'] = '';
       if (attrs) {
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
         for (const attr in attrs) {

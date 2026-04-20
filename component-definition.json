@@ -60,6 +60,42 @@
       "id": "blocks",
       "components": [
         {
+          "title": "About Information",
+          "id": "about-information",
+          "model": "about-information",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"about-information\"><div><div><p>Overcome your limited beliefs, reprogram your mindset now</p></div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div></div><div><div><p>Helena Kukec</p></div></div></div>",
+              "fields": [
+                {
+                  "name": "quote",
+                  "selector": "div:nth-child(1)>div:nth-child(1)"
+                },
+                {
+                  "name": "accentImage",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>picture>img[src]"
+                },
+                {
+                  "name": "accentImageAlt",
+                  "selector": "div:nth-child(1)>div:nth-child(2)>picture>img[alt]"
+                },
+                {
+                  "name": "portraitImage",
+                  "selector": "div:nth-child(1)>div:nth-child(3)>picture>img[src]"
+                },
+                {
+                  "name": "portraitImageAlt",
+                  "selector": "div:nth-child(1)>div:nth-child(3)>picture>img[alt]"
+                },
+                {
+                  "name": "signature",
+                  "selector": "div:nth-child(2)>div"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Accordion",
           "id": "accordion",
           "model": "accordion",
@@ -503,6 +539,46 @@
           }
         },
         {
+          "title": "Newsletter",
+          "id": "newsletter",
+          "model": "newsletter",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"newsletter\"><div><div><h2>Subscribe and find out more about us</h2></div></div><div><div><p>email</p></div><div><p>Subscribe</p></div></div><div><div><p>Thank you for subscribing. Check your inbox soon.</p></div><div><p>Please enter a valid email address.</p></div></div><div><div><p>Please complete the verification challenge.</p></div><div><p>Something went wrong. Please try again.</p></div></div></div>",
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)>div"
+                },
+                {
+                  "name": "placeholder",
+                  "selector": "div:nth-child(2)>div:nth-child(1)"
+                },
+                {
+                  "name": "submitLabel",
+                  "selector": "div:nth-child(2)>div:nth-child(2)"
+                },
+                {
+                  "name": "successMessage",
+                  "selector": "div:nth-child(3)>div:nth-child(1)"
+                },
+                {
+                  "name": "invalidEmailMessage",
+                  "selector": "div:nth-child(3)>div:nth-child(2)"
+                },
+                {
+                  "name": "verificationMessage",
+                  "selector": "div:nth-child(4)>div:nth-child(1)"
+                },
+                {
+                  "name": "submitErrorMessage",
+                  "selector": "div:nth-child(4)>div:nth-child(2)"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Quote",
           "id": "quote",
           "model": "quote",
@@ -643,6 +719,38 @@
                 {
                   "name": "posterImage",
                   "selector": "div>div>picture>img[src]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Z Style",
+          "id": "z-style",
+          "model": "z-style",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"z-style left\"><div><div><h2>I coach provocatively, soulfully and am intuitively gifted to be able to spot new opportunities for you. You are ready to heal and become the powerful woman.</h2></div></div><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><h3>I am Gily Pompeo, your life coach</h3><p>Lorem ipsum dolor sit amet, consetetur sadips cing elitr, sed diam nonumy.</p><p>Lorem ipsum dolor sit amet, consetetur sadipscing om elitr, sed diam nonumy eirm od tempor invidunt ut labo re et dolore magna aliquyam erat, sed diam vo luptua.</p></div></div><div><div><p>Helena Kukec</p></div></div></div>",
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)>div"
+                },
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(2)>div:nth-child(1)>picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(2)>div:nth-child(1)>picture>img[alt]"
+                },
+                {
+                  "name": "content",
+                  "selector": "div:nth-child(2)>div:nth-child(2)"
+                },
+                {
+                  "name": "signature",
+                  "selector": "div:nth-child(3)>div"
                 }
               ]
             }
