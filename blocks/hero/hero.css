@@ -161,6 +161,7 @@
 .hero.fade .hero-content {
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
   min-height: auto;
   align-items: flex-start;
   justify-content: center;

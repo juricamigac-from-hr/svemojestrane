@@ -8,9 +8,9 @@
   --newsletter-background-dark: #e06a44;
   --newsletter-dot: rgb(137 63 45 / 18%);
   --newsletter-text: rgb(255 249 245 / 98%);
-  --newsletter-text-muted: rgb(255 242 235 / 78%);
-  --newsletter-border: rgb(255 245 239 / 74%);
-  --newsletter-status-error: rgb(255 241 236 / 96%);
+  --newsletter-text-muted: color-mix(in srgb, var(--newsletter-text) 78%, transparent);
+  --newsletter-border: color-mix(in srgb, var(--newsletter-text) 74%, transparent);
+  --newsletter-status-error: color-mix(in srgb, var(--newsletter-text) 96%, transparent);
 
   padding: clamp(40px, 7vw, 84px) var(--page-gutter-mobile);
   background:
@@ -99,7 +99,7 @@
 .newsletter .newsletter-submit {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 12px;
   margin: 0;
   border: 0;
