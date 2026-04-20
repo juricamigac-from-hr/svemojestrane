@@ -691,6 +691,10 @@
   .consent-manager .cm__body {
     padding-block: 1.1rem;
   }
+
+  .consent-manager .cm__btn-group > .cm__btn:only-child {
+    width: 100%;
+  }
 }
 
 @media (width <= 900px) {

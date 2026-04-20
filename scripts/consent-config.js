@@ -34,23 +34,23 @@ const consentConfig = {
     necessary: {
       required: true,
       default: 'granted',
-      label: 'Strictly Necessary Cookies',
-      description: 'Necessary cookies are essential for a website to work correctly, as they enable core features such as navigation and access to secure sections. Without them, the site cannot operate properly.',
+      label: 'Striktno nužni kolačići',
+      description: 'Nužni kolačići neophodni su za ispravan rad web-stranice jer omogućuju osnovne funkcionalnosti, poput navigacije i pristupa sigurnim dijelovima stranice. Bez njih stranica ne može pravilno funkcionirati.',
     },
     functional: {
       default: 'denied',
-      label: 'Functionality Cookies',
-      description: 'Preference cookies allow a website to remember settings that influence how it behaves or appears, such as your chosen language or geographic region. They help provide a more personalized experience by keeping your selections consistent across visits, so you don’t have to reconfigure the site each time you return.',
+      label: 'Funkcijski kolačići',
+      description: 'Preferencijski kolačići omogućuju web-stranici da zapamti postavke koje utječu na njezino ponašanje ili izgled, poput odabranog jezika ili geografske regije. Pomažu pružiti personaliziranije iskustvo tako što vaše odabire zadržavaju dosljednima između posjeta, pa ne morate ponovno podešavati stranicu pri svakom povratku.',
     },
     analytics: {
       default: 'denied',
-      label: 'Analytics Cookies',
-      description: 'Statistic cookies help site owners understand how visitors use the website by gathering and reporting data in an anonymous form.',
+      label: 'Analitički kolačići',
+      description: 'Statistički kolačići pomažu vlasnicima web-stranica razumjeti kako posjetitelji koriste web-stranicu prikupljanjem i izvještavanjem podataka u anonimiziranom obliku.',
     },
     advertising: {
       default: 'denied',
-      label: 'Advertising Cookies',
-      description: 'Marketing cookies are used to follow users across different websites in order to show ads that are more relevant and engaging, making them more useful for both publishers and third-party advertisers.',
+      label: 'Marketinški kolačići',
+      description: 'Marketinški kolačići koriste se za praćenje korisnika na različitim web-stranicama kako bi se prikazivali oglasi koji su relevantniji i zanimljiviji, čime postaju korisniji i izdavačima i oglašivačima trećih strana.',
     },
   },
   vendors: {

@@ -37,7 +37,7 @@ function localStorageBackend(key) {
   };
 }
 
-export function createStorage(config) {
+export default function createStorage(config) {
   const key = config?.key || 'site_consent';
   return config?.type === 'cookie' ? cookieStorage(key) : localStorageBackend(key);
 }

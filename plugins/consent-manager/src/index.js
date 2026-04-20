@@ -1,6 +1,6 @@
-import { loadCSS } from '../../../../scripts/aem.js';
-import { createStorage } from './storage.js';
-import { createEmitter } from './events.js';
+import { loadCSS } from '../../../scripts/aem.js';
+import createStorage from './storage.js';
+import createEmitter from './events.js';
 import createUI from './ui.js';
 import { applyManagedEmbeds, applyManagedScripts } from './runtime.js';
 import GoogleConsentAdapter from './adapters/google-consent.js';
@@ -20,10 +20,27 @@ const DEFAULT_CONFIG = {
     key: 'site_consent',
   },
   categories: {
-    necessary: { required: true, default: 'granted', label: 'Necessary', description: 'Required for core site functionality.' },
-    functional: { default: 'denied', label: 'Functional', description: 'Embedded media and enhanced experiences.' },
-    analytics: { default: 'denied', label: 'Analytics', description: 'Audience measurement and site improvement.' },
-    advertising: { default: 'denied', label: 'Advertising', description: 'Ad measurement, remarketing, and personalization.' },
+    necessary: {
+      required: true,
+      default: 'granted',
+      label: 'Necessary',
+      description: 'Required for core site functionality.',
+    },
+    functional: {
+      default: 'denied',
+      label: 'Functional',
+      description: 'Embedded media and enhanced experiences.',
+    },
+    analytics: {
+      default: 'denied',
+      label: 'Analytics',
+      description: 'Audience measurement and site improvement.',
+    },
+    advertising: {
+      default: 'denied',
+      label: 'Advertising',
+      description: 'Ad measurement, remarketing, and personalization.',
+    },
   },
   vendors: {},
   googleConsentMode: {
@@ -44,7 +61,14 @@ const DEFAULT_CONFIG = {
 function deepMerge(base, extra) {
   const output = { ...base };
   Object.entries(extra || {}).forEach(([key, value]) => {
-    if (value && typeof value === 'object' && !Array.isArray(value) && base[key] && typeof base[key] === 'object' && !Array.isArray(base[key])) {
+    if (
+      value
+      && typeof value === 'object'
+      && !Array.isArray(value)
+      && base[key]
+      && typeof base[key] === 'object'
+      && !Array.isArray(base[key])
+    ) {
       output[key] = deepMerge(base[key], value);
     } else {
       output[key] = value;
@@ -54,14 +78,15 @@ function deepMerge(base, extra) {
 }
 
 function createDefaultCategories(categories) {
-  return Object.fromEntries(Object.entries(categories).map(([key, def]) => [key, def.required ? 'granted' : (def.default || 'denied')]));
+  return Object.fromEntries(
+    Object.entries(categories).map(([key, def]) => [key, def.required ? 'granted' : (def.default || 'denied')]),
+  );
 }
 
 export default class ConsentManager {
   constructor(config = {}) {
     this.config = deepMerge(DEFAULT_CONFIG, config);
-    console.log(this.config);
-    
+
     this.storage = createStorage(this.config.storage);
     this.emitter = createEmitter();
     this.state = null;
@@ -162,7 +187,13 @@ export default class ConsentManager {
       .filter(([, def]) => !def.required)
       .every(([key]) => this.state.categories[key] === 'denied');
 
-    this.state.status = allGranted ? 'granted' : (allDenied ? 'denied' : 'custom');
+    if (allGranted) {
+      this.state.status = 'granted';
+    } else if (allDenied) {
+      this.state.status = 'denied';
+    } else {
+      this.state.status = 'custom';
+    }
 
     this.persistState();
     this.pushGoogleConsentUpdate();
@@ -184,7 +215,11 @@ export default class ConsentManager {
   }
 
   async denyAll() {
-    const categories = Object.fromEntries(Object.entries(this.config.categories).map(([key, def]) => [key, def.required ? 'granted' : 'denied']));
+    const categories = Object.fromEntries(
+      Object.entries(this.config.categories).map(
+        ([key, def]) => [key, def.required ? 'granted' : 'denied'],
+      ),
+    );
     await this.setState({ categories }, 'banner');
   }
 
@@ -234,7 +269,8 @@ export default class ConsentManager {
   }
 
   async applyPhase(phase) {
-    const phaseVendors = Object.entries(this.config.vendors).filter(([, vendor]) => vendor.phase === phase);
+    const phaseVendors = Object.entries(this.config.vendors)
+      .filter(([, vendor]) => vendor.phase === phase);
     await Promise.all(phaseVendors.map(async ([id, vendor]) => {
       if (!this.isAllowed(id)) return;
       const adapter = this.adapters.get(vendor.adapter);

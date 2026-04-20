@@ -1,4 +1,4 @@
-export function createEmitter() {
+export default function createEmitter() {
   const handlers = new Map();
   return {
     on(eventName, handler) {
@@ -6,7 +6,9 @@ export function createEmitter() {
       list.push(handler);
       handlers.set(eventName, list);
       return () => {
-        handlers.set(eventName, (handlers.get(eventName) || []).filter((entry) => entry !== handler));
+        const nextHandlers = (handlers.get(eventName) || [])
+          .filter((entry) => entry !== handler);
+        handlers.set(eventName, nextHandlers);
       };
     },
     emit(eventName, payload) {

@@ -3,10 +3,10 @@ export default class GoogleConsentAdapter {
     this.config = config;
   }
 
-  ensureGtag() {
+  static ensureGtag() {
     window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function gtag() {
-      window.dataLayer.push(arguments);
+    window.gtag = window.gtag || function gtag(...args) {
+      window.dataLayer.push(args);
     };
   }
 
@@ -23,12 +23,12 @@ export default class GoogleConsentAdapter {
   }
 
   applyDefaults(_ctx, state) {
-    this.ensureGtag();
+    GoogleConsentAdapter.ensureGtag();
     window.gtag('consent', 'default', this.getConsentState(state));
   }
 
   pushUpdate(_ctx, state) {
-    this.ensureGtag();
+    GoogleConsentAdapter.ensureGtag();
     window.gtag('consent', 'update', this.getConsentState(state));
   }
 }
