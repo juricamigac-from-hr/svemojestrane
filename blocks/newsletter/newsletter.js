@@ -44,11 +44,37 @@ function buildTitle(cell) {
   return title;
 }
 
+function applySectionTheme(block) {
+  const section = block.closest('.section');
+
+  if (!section) {
+    return;
+  }
+
+  const { background, color } = section.dataset;
+
+  if (background) {
+    block.style.setProperty('--newsletter-background', background);
+    block.style.setProperty('--newsletter-background-dark', background);
+  }
+
+  if (color) {
+    block.style.setProperty('--newsletter-text', color);
+  }
+}
+
 function extractContent(block) {
+  const rowTwoFirstCell = getCell(block, 1, 0);
+  const rowTwoSecondCell = getCell(block, 1, 1);
+  const hasDedicatedPlaceholderCell = Boolean(rowTwoSecondCell);
+
   return {
     titleCell: getCell(block, 0, 0),
-    placeholder: getCellText(getCell(block, 1, 0), DEFAULT_CONTENT.placeholder),
-    submitLabel: getCellText(getCell(block, 1, 1), DEFAULT_CONTENT.submitLabel),
+    placeholder: getCellText(
+      hasDedicatedPlaceholderCell ? rowTwoFirstCell : undefined,
+      DEFAULT_CONTENT.placeholder,
+    ),
+    submitLabel: getCellText(rowTwoSecondCell || rowTwoFirstCell, DEFAULT_CONTENT.submitLabel),
     successMessage: getCellText(getCell(block, 2, 0), DEFAULT_CONTENT.successMessage),
     invalidEmailMessage: getCellText(getCell(block, 2, 1), DEFAULT_CONTENT.invalidEmailMessage),
     submitErrorMessage: getCellText(getCell(block, 3, 1), DEFAULT_CONTENT.submitErrorMessage),
@@ -126,6 +152,7 @@ async function submitForm(form, input, submitButton, status, thankYou, content) 
 }
 
 export default async function decorate(block) {
+  applySectionTheme(block);
   const content = extractContent(block);
 
   block.replaceChildren();

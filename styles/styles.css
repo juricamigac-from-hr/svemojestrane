@@ -96,6 +96,8 @@
 body {
   display: none;
   margin: 0;
+  overflow-x: hidden;
+  overflow-x: clip;
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
@@ -105,6 +107,10 @@ body {
 
 body.appear {
   display: block;
+}
+
+html {
+  overflow-x: clip;
 }
 
 header {
